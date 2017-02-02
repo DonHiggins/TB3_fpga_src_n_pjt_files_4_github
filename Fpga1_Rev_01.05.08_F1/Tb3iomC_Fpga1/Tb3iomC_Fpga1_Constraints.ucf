@@ -1,0 +1,363 @@
+//
+//NET <I/O_NAME> LOC = "<EXTERNAL_PORT_IDENTIFIER>";
+//NET <I/O_NAME> IOSTANDARD="<IOSTANDARD VALUE>";
+//NET <I/O_NAME> DRIVE = "<DRIVE_VALUE>"; (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+//NET <I/O_NAME> <PULLUP/PULLDOWN/KEEPER/FLOAT>;
+//
+//
+//LVTTL-Low-Voltage TTL
+//The Low-Voltage TTL (LVTTL) standard is a general-purpose EIA/JESD standard for 3.3V
+//applications that uses an LVTTL input buffer and a push-pull output buffer. This standard
+//requires a 3.3V output source voltage (VCCO), but does not require the use of a reference
+//voltage (VREF) or a termination voltage (VTT).
+//
+//
+
+NET "clkDspIn" LOC = "N7";
+NET "clkDspIn" IOSTANDARD="LVTTL";
+// 37.5 MH -> 26.667 ns period
+NET "clkDspIn" TNM_NET = "clkDspIn";
+TIMESPEC "TS_clkDspIn" = PERIOD "clkDspIn" 26.666000 ns HIGH 50%;
+
+NET "re" LOC = "N14";
+NET "re" IOSTANDARD="LVTTL";
+NET "we" LOC = "R6";
+NET "we" IOSTANDARD="LVTTL";
+//NET "io_cxs" LOC = "R6";
+//NET "io_csx" IOSTANDARD="LVTTL";
+NET "cpld_reset" LOC = "E7";
+NET "cpld_reset" IOSTANDARD="LVTTL";
+NET "dsp_reset" LOC = "N9";
+NET "dsp_reset" IOSTANDARD="LVTTL";
+
+NET "cs_fpga_1" LOC = "M9";
+NET "cs_fpga_1" IOSTANDARD="LVTTL";
+
+
+
+NET "ab[0]" LOC = "R13";
+NET "ab[0]" IOSTANDARD="LVTTL";
+NET "ab[1]" LOC = "P13";
+NET "ab[1]" IOSTANDARD="LVTTL";
+NET "ab[2]" LOC = "R7";
+NET "ab[2]" IOSTANDARD="LVTTL";
+NET "ab[3]" LOC = "P7";
+NET "ab[3]" IOSTANDARD="LVTTL";
+NET "ab[4]" LOC = "R8";
+NET "ab[4]" IOSTANDARD="LVTTL";
+NET "ab[5]" LOC = "N8";
+NET "ab[5]" IOSTANDARD="LVTTL";
+NET "ab[6]" LOC = "R9";
+NET "ab[6]" IOSTANDARD="LVTTL";
+NET "ab[7]" LOC = "P9";
+NET "ab[7]" IOSTANDARD="LVTTL";
+
+NET "db[0]" LOC = "K13";
+NET "db[0]" IOSTANDARD="LVTTL";
+NET "db[1]" LOC = "M11";
+NET "db[1]" IOSTANDARD="LVTTL";
+NET "db[2]" LOC = "N11";
+NET "db[2]" IOSTANDARD="LVTTL";
+NET "db[3]" LOC = "P5";
+NET "db[3]" IOSTANDARD="LVTTL";
+NET "db[4]" LOC = "R5";
+NET "db[4]" IOSTANDARD="LVTTL";
+NET "db[5]" LOC = "L6";
+NET "db[5]" IOSTANDARD="LVTTL";
+NET "db[6]" LOC = "L5";
+NET "db[6]" IOSTANDARD="LVTTL";
+NET "db[7]" LOC = "N6";
+NET "db[7]" IOSTANDARD="LVTTL";
+NET "db[8]" LOC = "M5";
+NET "db[8]" IOSTANDARD="LVTTL";
+NET "db[9]" LOC = "N5";
+NET "db[9]" IOSTANDARD="LVTTL";
+NET "db[10]" LOC = "R10";
+NET "db[10]" IOSTANDARD="LVTTL";
+NET "db[11]" LOC = "L9";
+NET "db[11]" IOSTANDARD="LVTTL";
+NET "db[12]" LOC = "M10";
+NET "db[12]" IOSTANDARD="LVTTL";
+NET "db[13]" LOC = "M8";
+NET "db[13]" IOSTANDARD="LVTTL";
+NET "db[14]" LOC = "K8";
+NET "db[14]" IOSTANDARD="LVTTL";
+NET "db[15]" LOC = "L8";
+NET "db[15]" IOSTANDARD="LVTTL";
+
+
+NET "led[0]" LOC = "C9";
+NET "led[0]" IOSTANDARD="LVTTL";
+NET "led[0]" DRIVE = "4";    // (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+NET "led[1]" LOC = "H10";
+NET "led[1]" IOSTANDARD="LVTTL";
+NET "led[1]" DRIVE = "4";    // (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+                             // LED circuit resistor is sized for 3.3 mA
+
+NET "testpoint[0]" LOC = "A3";
+NET "testpoint[0]" IOSTANDARD="LVTTL";
+NET "testpoint[1]" LOC = "B3";
+NET "testpoint[1]" IOSTANDARD="LVTTL";
+NET "testpoint[2]" LOC = "C4";
+NET "testpoint[2]" IOSTANDARD="LVTTL";
+NET "testpoint[3]" LOC = "A2";
+NET "testpoint[3]" IOSTANDARD="LVTTL";
+
+// These were used in TB3IOMB to load FPGA2
+// in TB3IOMC, we have lines from DSP over 96-pin interface
+//   to perform these functions. Circuit connections are
+//   still in place to FPGA2 control pins, but we have NI
+//   series resistors.
+//NET "f_init_2" LOC = "K15";
+//NET "f_init_2" IOSTANDARD="LVTTL";
+//NET "f_done_2" LOC = "H11";
+//NET "f_done_2" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "do_rails_a[0]" LOC = "H6"; // "top_rail_a_sel_24v" 
+NET "do_rails_a[0]" IOSTANDARD="LVTTL";
+NET "do_rails_a[1]" LOC = "H5"; // "top_rail_a_sel_15v"
+NET "do_rails_a[1]" IOSTANDARD="LVTTL";
+NET "do_rails_a[2]" LOC = "J5"; // "top_rail_a_sel_5v"
+NET "do_rails_a[2]" IOSTANDARD="LVTTL";
+NET "do_rails_a[3]" LOC = "J2"; // "bot_rail_a_sel_0v"
+NET "do_rails_a[3]" IOSTANDARD="LVTTL";
+NET "do_rails_a[4]" LOC = "H4"; // "bot_rail_a_sel_n15v"
+NET "do_rails_a[4]" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "do_rails_b[0]" LOC = "J1"; // "top_rail_b_sel_24v" 
+NET "do_rails_b[0]" IOSTANDARD="LVTTL";
+NET "do_rails_b[1]" LOC = "K5"; // "top_rail_b_sel_15v"
+NET "do_rails_b[1]" IOSTANDARD="LVTTL";
+NET "do_rails_b[2]" LOC = "J4"; // "top_rail_b_sel_5v"
+NET "do_rails_b[2]" IOSTANDARD="LVTTL";
+NET "do_rails_b[3]" LOC = "J3"; // "bot_rail_b_sel_0v"
+NET "do_rails_b[3]" IOSTANDARD="LVTTL";
+NET "do_rails_b[4]" LOC = "K4"; // "bot_rail_b_sel_n15v"
+NET "do_rails_b[4]" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "do_rails_c[0]" LOC = "K3"; // "top_rail_c_sel_24v" 
+NET "do_rails_c[0]" IOSTANDARD="LVTTL";
+NET "do_rails_c[1]" LOC = "K1"; // "top_rail_c_sel_15v"
+NET "do_rails_c[1]" IOSTANDARD="LVTTL";
+NET "do_rails_c[2]" LOC = "L2"; // "top_rail_c_sel_5v"
+NET "do_rails_c[2]" IOSTANDARD="LVTTL";
+NET "do_rails_c[3]" LOC = "M4"; // "bot_rail_c_sel_0v"
+NET "do_rails_c[3]" IOSTANDARD="LVTTL";
+NET "do_rails_c[4]" LOC = "L1"; // "bot_rail_c_sel_n15v"
+NET "do_rails_c[4]" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "do_rails_d[0]" LOC = "L3"; // "top_rail_d_sel_24v" 
+NET "do_rails_d[0]" IOSTANDARD="LVTTL";
+NET "do_rails_d[1]" LOC = "M3"; // "top_rail_d_sel_15v"
+NET "do_rails_d[1]" IOSTANDARD="LVTTL";
+NET "do_rails_d[2]" LOC = "M1"; // "top_rail_d_sel_5v"
+NET "do_rails_d[2]" IOSTANDARD="LVTTL";
+NET "do_rails_d[3]" LOC = "N1"; // "bot_rail_d_sel_0v"
+NET "do_rails_d[3]" IOSTANDARD="LVTTL";
+NET "do_rails_d[4]" LOC = "N2"; // "bot_rail_d_sel_n15v"
+NET "do_rails_d[4]" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "do_rails_e[0]" LOC = "A4"; // "top_rail_e_sel_24v" 
+NET "do_rails_e[0]" IOSTANDARD="LVTTL";
+NET "do_rails_e[1]" LOC = "B5"; // "top_rail_e_sel_15v"
+NET "do_rails_e[1]" IOSTANDARD="LVTTL";
+NET "do_rails_e[2]" LOC = "A5"; // "top_rail_e_sel_5v"
+NET "do_rails_e[2]" IOSTANDARD="LVTTL";
+NET "do_rails_e[3]" LOC = "C5"; // "bot_rail_e_sel_0v"
+NET "do_rails_e[3]" IOSTANDARD="LVTTL";
+NET "do_rails_e[4]" LOC = "D5"; // "bot_rail_e_sel_n15v"
+NET "do_rails_e[4]" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "do_rails_f[0]" LOC = "C6"; // "top_rail_f_sel_24v" 
+NET "do_rails_f[0]" IOSTANDARD="LVTTL";
+NET "do_rails_f[1]" LOC = "A6"; // "top_rail_f_sel_15v"
+NET "do_rails_f[1]" IOSTANDARD="LVTTL";
+NET "do_rails_f[2]" LOC = "E6"; // "top_rail_f_sel_5v"
+NET "do_rails_f[2]" IOSTANDARD="LVTTL";
+NET "do_rails_f[3]" LOC = "B7"; // "bot_rail_f_sel_0v"
+NET "do_rails_f[3]" IOSTANDARD="LVTTL";
+NET "do_rails_f[4]" LOC = "D6"; // "bot_rail_f_sel_n15v"
+NET "do_rails_f[4]" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "dig_out_a_top[0]" LOC = "B14"; 
+NET "dig_out_a_top[0]" IOSTANDARD="LVTTL";
+NET "dig_out_a_bot[0]" LOC = "B15"; 
+NET "dig_out_a_bot[0]" IOSTANDARD="LVTTL";
+NET "dig_out_a_top[1]" LOC = "C14"; 
+NET "dig_out_a_top[1]" IOSTANDARD="LVTTL";
+NET "dig_out_a_bot[1]" LOC = "C15"; 
+NET "dig_out_a_bot[1]" IOSTANDARD="LVTTL";
+NET "dig_out_a_top[2]" LOC = "D13"; 
+NET "dig_out_a_top[2]" IOSTANDARD="LVTTL";
+NET "dig_out_a_bot[2]" LOC = "D15"; 
+NET "dig_out_a_bot[2]" IOSTANDARD="LVTTL";
+NET "dig_out_a_top[3]" LOC = "E14"; 
+NET "dig_out_a_top[3]" IOSTANDARD="LVTTL";
+NET "dig_out_a_bot[3]" LOC = "E15"; 
+NET "dig_out_a_bot[3]" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "dig_out_b_top[0]" LOC = "F11"; 
+NET "dig_out_b_top[0]" IOSTANDARD="LVTTL";
+NET "dig_out_b_bot[0]" LOC = "F12"; 
+NET "dig_out_b_bot[0]" IOSTANDARD="LVTTL";
+NET "dig_out_b_top[1]" LOC = "F13"; 
+NET "dig_out_b_top[1]" IOSTANDARD="LVTTL";
+NET "dig_out_b_bot[1]" LOC = "F15"; 
+NET "dig_out_b_bot[1]" IOSTANDARD="LVTTL";
+NET "dig_out_b_top[2]" LOC = "G11"; 
+NET "dig_out_b_top[2]" IOSTANDARD="LVTTL";
+NET "dig_out_b_bot[2]" LOC = "G12"; 
+NET "dig_out_b_bot[2]" IOSTANDARD="LVTTL";
+NET "dig_out_b_top[3]" LOC = "G14"; 
+NET "dig_out_b_top[3]" IOSTANDARD="LVTTL";
+NET "dig_out_b_bot[3]" LOC = "G15"; 
+NET "dig_out_b_bot[3]" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "dig_out_c_top[0]" LOC = "H12"; 
+NET "dig_out_c_top[0]" IOSTANDARD="LVTTL";
+NET "dig_out_c_bot[0]" LOC = "G13"; 
+NET "dig_out_c_bot[0]" IOSTANDARD="LVTTL";
+NET "dig_out_c_top[1]" LOC = "H13"; 
+NET "dig_out_c_top[1]" IOSTANDARD="LVTTL";
+NET "dig_out_c_bot[1]" LOC = H15""; 
+NET "dig_out_c_bot[1]" IOSTANDARD="LVTTL";
+NET "dig_out_c_top[2]" LOC = "J11"; 
+NET "dig_out_c_top[2]" IOSTANDARD="LVTTL";
+NET "dig_out_c_bot[2]" LOC = "J13"; 
+NET "dig_out_c_bot[2]" IOSTANDARD="LVTTL";
+NET "dig_out_c_top[3]" LOC = "J14"; 
+NET "dig_out_c_top[3]" IOSTANDARD="LVTTL";
+NET "dig_out_c_bot[3]" LOC = "J15"; 
+NET "dig_out_c_bot[3]" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "dig_out_d_top[0]" LOC = "K10"; 
+NET "dig_out_d_top[0]" IOSTANDARD="LVTTL";
+NET "dig_out_d_bot[0]" LOC = "K11"; 
+NET "dig_out_d_bot[0]" IOSTANDARD="LVTTL";
+NET "dig_out_d_top[1]" LOC = "K12"; 
+NET "dig_out_d_top[1]" IOSTANDARD="LVTTL";
+NET "dig_out_d_bot[1]" LOC = "L12"; 
+NET "dig_out_d_bot[1]" IOSTANDARD="LVTTL";
+NET "dig_out_d_top[2]" LOC = "L14"; 
+NET "dig_out_d_top[2]" IOSTANDARD="LVTTL";
+NET "dig_out_d_bot[2]" LOC = "L15"; 
+NET "dig_out_d_bot[2]" IOSTANDARD="LVTTL";
+NET "dig_out_d_top[3]" LOC = "C2"; 
+NET "dig_out_d_top[3]" IOSTANDARD="LVTTL";
+NET "dig_out_d_bot[3]" LOC = "C1"; 
+NET "dig_out_d_bot[3]" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "dig_out_e_top[0]" LOC = "D3"; 
+NET "dig_out_e_top[0]" IOSTANDARD="LVTTL";
+NET "dig_out_e_bot[0]" LOC = "D1"; 
+NET "dig_out_e_bot[0]" IOSTANDARD="LVTTL";
+NET "dig_out_e_top[1]" LOC = "D4"; 
+NET "dig_out_e_top[1]" IOSTANDARD="LVTTL";
+NET "dig_out_e_bot[1]" LOC = "E3"; 
+NET "dig_out_e_bot[1]" IOSTANDARD="LVTTL";
+NET "dig_out_e_top[2]" LOC = "E2"; 
+NET "dig_out_e_top[2]" IOSTANDARD="LVTTL";
+NET "dig_out_e_bot[2]" LOC = "E1"; 
+NET "dig_out_e_bot[2]" IOSTANDARD="LVTTL";
+NET "dig_out_e_top[3]" LOC = "E5"; 
+NET "dig_out_e_top[3]" IOSTANDARD="LVTTL";
+NET "dig_out_e_bot[3]" LOC = "E4"; 
+NET "dig_out_e_bot[3]" IOSTANDARD="LVTTL";
+
+// Single Ended Digital Outputs
+NET "dig_out_f_top[0]" LOC = "F3"; 
+NET "dig_out_f_top[0]" IOSTANDARD="LVTTL";
+NET "dig_out_f_bot[0]" LOC = "F1"; 
+NET "dig_out_f_bot[0]" IOSTANDARD="LVTTL";
+NET "dig_out_f_top[1]" LOC = "F5"; 
+NET "dig_out_f_top[1]" IOSTANDARD="LVTTL";
+NET "dig_out_f_bot[1]" LOC = "F4"; 
+NET "dig_out_f_bot[1]" IOSTANDARD="LVTTL";
+NET "dig_out_f_top[2]" LOC = "G2"; 
+NET "dig_out_f_top[2]" IOSTANDARD="LVTTL";
+NET "dig_out_f_bot[2]" LOC = "G1"; 
+NET "dig_out_f_bot[2]" IOSTANDARD="LVTTL";
+NET "dig_out_f_top[3]" LOC = "G5"; 
+NET "dig_out_f_top[3]" IOSTANDARD="LVTTL";
+NET "dig_out_f_bot[3]" LOC = "G3"; 
+NET "dig_out_f_bot[3]" IOSTANDARD="LVTTL";
+
+// Differential Digital Outputs
+NET "diff_out[0]" LOC = "A7"; //  DIFF_OUT_1
+NET "diff_out[0]" IOSTANDARD="LVTTL";
+NET "diff_out[1]" LOC = "D7"; //  DIFF_OUT_2
+NET "diff_out[1]" IOSTANDARD="LVTTL";
+NET "diff_out[2]" LOC = "C7"; //  DIFF_OUT_3
+NET "diff_out[2]" IOSTANDARD="LVTTL";
+NET "diff_out[3]" LOC = "C8"; //  DIFF_OUT_4
+NET "diff_out[3]" IOSTANDARD="LVTTL";
+NET "diff_out[4]" LOC = "C11"; //  DIFF_OUT_5
+NET "diff_out[4]" IOSTANDARD="LVTTL";
+NET "diff_out[5]" LOC = "C12"; //  DIFF_OUT_6
+NET "diff_out[5]" IOSTANDARD="LVTTL";
+NET "diff_out[6]" LOC = "A12"; //  DIFF_OUT_7
+NET "diff_out[6]" IOSTANDARD="LVTTL";
+NET "diff_out[7]" LOC = "B13"; //  DIFF_OUT_8
+NET "diff_out[7]" IOSTANDARD="LVTTL";
+
+NET "diff_out_enable[0]" LOC = "A8"; //  Diff_Out_Enable_1234
+NET "diff_out_enable[0]" IOSTANDARD="LVTTL";
+NET "diff_out_enable[1]" LOC = "A13"; //  Diff_Out_Enable_5678
+NET "diff_out_enable[1]" IOSTANDARD="LVTTL";
+
+
+NET "dac_sync[0]" LOC = "A11";	//~DAC_SS_AO_1
+NET "dac_sync[0]" IOSTANDARD="LVTTL";
+NET "dac_sync[1]" LOC = "D11";	//~DAC_SS_AO_2
+NET "dac_sync[1]" IOSTANDARD="LVTTL";
+NET "dac_sync[2]" LOC = "H3";	//~DAC_SS_AO_3
+NET "dac_sync[2]" IOSTANDARD="LVTTL";
+NET "dac_sync[3]" LOC = "H1";	//~DAC_SS_AO_4
+NET "dac_sync[3]" IOSTANDARD="LVTTL";
+NET "dac_sync[4]" LOC = "L7";	//~DAC_SS_AO_5
+NET "dac_sync[4]" IOSTANDARD="LVTTL";
+NET "dac_sync[5]" LOC = "M6";	//~DAC_SS_AO_6
+NET "dac_sync[5]" IOSTANDARD="LVTTL";
+NET "dac_sync[6]" LOC = "N4";	//~DAC_SS_AO_7
+NET "dac_sync[6]" IOSTANDARD="LVTTL";
+NET "dac_sync[7]" LOC = "R4";	//~DAC_SS_AO_8
+NET "dac_sync[7]" IOSTANDARD="LVTTL";
+NET "dac_sync[8]" LOC = "A10";	//~DAC_SS_DI_A
+NET "dac_sync[8]" IOSTANDARD="LVTTL";
+NET "dac_sync[9]" LOC = "B11";	//~DAC_SS_DI_B
+NET "dac_sync[9]" IOSTANDARD="LVTTL";
+NET "dac_sync[10]" LOC = "E9";	//~DAC_SS_DI_C
+NET "dac_sync[10]" IOSTANDARD="LVTTL";
+NET "dac_sync[11]" LOC = "C10";	//~DAC_SS_DI_D
+NET "dac_sync[11]" IOSTANDARD="LVTTL";
+NET "dac_sync[12]" LOC = "D10";	//~DAC_SS_SSE_COS
+NET "dac_sync[12]" IOSTANDARD="LVTTL";
+NET "dac_sync[13]" LOC = "A9";	//~DAC_SS_SSE_SIN
+NET "dac_sync[13]" IOSTANDARD="LVTTL";
+NET "dac_sync[14]" LOC = "E8";	//~DAC_SS_RES ( AD5449 dual DAC, sin & cos both)
+NET "dac_sync[14]" IOSTANDARD="LVTTL";
+NET "dac_ad5449_clr" LOC = "B9";	//~DAC_CLR_RES (~CLR signal to AD5449 DAC)
+NET "dac_ad5449_clr" IOSTANDARD="LVTTL";
+
+NET "dac_data[0]" LOC = "M13";	//F_DAC_DATA_AO_1
+NET "dac_data[0]" IOSTANDARD="LVTTL";
+NET "dac_data[1]" LOC = "N15";	//F_DAC_DATA_AO_5
+NET "dac_data[1]" IOSTANDARD="LVTTL";
+NET "dac_data[2]" LOC = "F10";	//F_DAC_DATA_DI
+NET "dac_data[2]" IOSTANDARD="LVTTL";
+NET "dac_data[3]" LOC = "F8";	//F_DAC_DATA_RES_SS
+NET "dac_data[3]" IOSTANDARD="LVTTL";
+NET "dac_clk"	LOC = "D8";	//F_DAC_CLK
+NET "dac_clk" IOSTANDARD="LVTTL";
+

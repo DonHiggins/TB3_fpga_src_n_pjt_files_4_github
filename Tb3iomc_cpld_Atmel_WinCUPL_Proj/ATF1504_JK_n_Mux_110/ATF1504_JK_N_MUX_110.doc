@@ -1,0 +1,615 @@
+
+*******************************************************************************
+                             ATF1504_JK_n_Mux_110
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          f1504isptqfp100  Library DLIB-h-40-2
+Created         Mon Jul 11 11:21:20 2016
+Name            ATF1504_JK_n_Mux_110 
+Partno          001 
+Revision        01 
+Date            07/11/2016 
+Designer        DH 
+Company         AMC 
+Assembly        None 
+Location        None 
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+ABB8.d  =>
+    AB8
+
+ABB8.ck  =>
+    XCLK_A
+
+ABB9.d  =>
+    AB9
+
+ABB9.ck  =>
+    XCLK_A
+
+ABB10.d  =>
+    AB10
+
+ABB10.ck  =>
+    XCLK_A
+
+ABB11.d  =>
+    AB11
+
+ABB11.ck  =>
+    XCLK_A
+
+ABB12.d  =>
+    AB12
+
+ABB12.ck  =>
+    XCLK_A
+
+ABB13.d  =>
+    AB13
+
+ABB13.ck  =>
+    XCLK_A
+
+ABB14.d  =>
+    AB14
+
+ABB14.ck  =>
+    XCLK_A
+
+ABB15.d  =>
+    AB15
+
+ABB15.ck  =>
+    XCLK_A
+
+ABB16.d  =>
+    AB16
+
+ABB16.ck  =>
+    XCLK_A
+
+ABB17.d  =>
+    AB17
+
+ABB17.ck  =>
+    XCLK_A
+
+ABB18.d  =>
+    AB18
+
+ABB18.ck  =>
+    XCLK_A
+
+CPLD_LED_0.k  =>
+    CPLD_LED_0_ADDR & !RE_DEB
+
+CPLD_LED_0.j  =>
+    CPLD_LED_0_ADDR & !WE_DEB
+
+CPLD_LED_0.ar  =>
+    !RESET_AL
+
+CPLD_LED_0.ck  =>
+    XCLK_A
+
+CPLD_LED_0_ADDR =>
+    !ABB8 & !ABB9 & !ABB10 & !ABB11 & ABB12 & !ABB13 & !ABB14 & !ABB15 & 
+      !ABB16 & !ABB17 & !ABB18
+
+CPLD_LED_1.j  =>
+    CPLD_LED_1_ADDR & !WE_DEB
+
+CPLD_LED_1.k  =>
+    CPLD_LED_1_ADDR & !RE_DEB
+
+CPLD_LED_1.ap  =>
+    !RESET_AL
+
+CPLD_LED_1.ck  =>
+    XCLK_A
+
+CPLD_LED_1_ADDR =>
+    ABB8 & !ABB9 & !ABB10 & !ABB11 & ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18
+
+CPLD_SPARE_0 =>
+    AB18
+  # !AB17
+  # !AB16
+  # !QUALIFIER_02
+
+CPLD_SPARE_1 =>
+    AB18
+  # !AB17
+  # !AB16
+  # !QUALIFIER_03
+
+CPLD_SPARE_2 =>
+    AB16 & AB17 & !AB18 & QUALIFIER_02
+
+CPLD_SPARE_3 =>
+    AB16 & AB17 & !AB18 & QUALIFIER_03
+
+CPLD_TP_0 =>
+    !CPLD_TP_0_ADDR_AM & FPGA1_RESET
+  # CPLD_TP_0_ADDR_AM & !FPGA1_RESET
+
+CPLD_TP_0_ADDR_AM =>
+    !ABB8 & !ABB9 & ABB10 & ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18 & QUALIFIER_01
+
+CPLD_TP_1 =>
+    !CPLD_TP_1_ADDR_AM & FPGA2_RESET
+  # CPLD_TP_1_ADDR_AM & !FPGA2_RESET
+
+CPLD_TP_1_ADDR_AM =>
+    !ABB8 & !ABB9 & ABB10 & ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18 & QUALIFIER_01
+
+CPLD_TP_2 =>
+    !CPLD_TP_2_ADDR_AM & CS_FPGA_1_AL
+  # CPLD_TP_2_ADDR_AM & !CS_FPGA_1_AL
+
+CPLD_TP_2_ADDR_AM =>
+    !ABB8 & !ABB9 & ABB10 & ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18 & QUALIFIER_01
+
+CPLD_TP_3 =>
+    !CPLD_TP_3_ADDR_AM & CS_FPGA_2_AL
+  # CPLD_TP_3_ADDR_AM & !CS_FPGA_2_AL
+
+CPLD_TP_3_ADDR_AM =>
+    !ABB8 & !ABB9 & ABB10 & ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18 & QUALIFIER_01
+
+CS_FLASH_1.j  =>
+    CS_FLASH_1_ADDR & !WE_BUF
+
+CS_FLASH_1.k  =>
+    CS_FLASH_1_ADDR & !RE_BUF
+
+CS_FLASH_1.ap  =>
+    !RESET_AL
+
+CS_FLASH_1.ck  =>
+    XCLK_A
+
+CS_FLASH_1_ADDR =>
+    ABB8 & !ABB9 & !ABB10 & ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18
+
+CS_FLASH_2.k  =>
+    CS_FLASH_2_ADDR & !RE_BUF
+
+CS_FLASH_2.j  =>
+    CS_FLASH_2_ADDR & !WE_BUF
+
+CS_FLASH_2.ap  =>
+    !RESET_AL
+
+CS_FLASH_2.ck  =>
+    XCLK_A
+
+CS_FLASH_2_ADDR =>
+    !ABB8 & ABB9 & !ABB10 & ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18
+
+CS_FPGA_1_AL =>
+    AB18
+  # AB17
+  # !AB16
+  # !QUALIFIER_01
+
+CS_FPGA_2_AL =>
+    AB18
+  # !AB17
+  # AB16
+  # !QUALIFIER_01
+
+EE_I2C_CLK_ENA.k  =>
+    EE_I2C_CLK_ENA_ADDR & !RE_BUF
+
+EE_I2C_CLK_ENA.j  =>
+    EE_I2C_CLK_ENA_ADDR & !WE_BUF
+
+EE_I2C_CLK_ENA.ap  =>
+    !RESET_AL
+
+EE_I2C_CLK_ENA.ck  =>
+    XCLK_A
+
+EE_I2C_CLK_ENA_ADDR =>
+    !ABB8 & !ABB9 & ABB10 & !ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & 
+      !ABB16 & !ABB17 & !ABB18
+
+FPGA1_RESET.k  =>
+    FPGA1_RESET_ADDR & !RE_BUF
+
+FPGA1_RESET.j  =>
+    FPGA1_RESET_ADDR & !WE_BUF
+
+FPGA1_RESET.ar  =>
+    !RESET_AL
+
+FPGA1_RESET.ck  =>
+    XCLK_A
+
+FPGA1_RESET_ADDR =>
+    ABB8 & !ABB9 & ABB10 & !ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18
+
+FPGA2_RESET.k  =>
+    FPGA2_RESET_ADDR & !RE_BUF
+
+FPGA2_RESET.j  =>
+    FPGA2_RESET_ADDR & !WE_BUF
+
+FPGA2_RESET.ar  =>
+    !RESET_AL
+
+FPGA2_RESET.ck  =>
+    XCLK_A
+
+FPGA2_RESET_ADDR =>
+    !ABB8 & ABB9 & ABB10 & !ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18
+
+F_PRGM_2.k  =>
+    F_PRGM_2_ADDR & !RE_DEB
+
+F_PRGM_2.j  =>
+    F_PRGM_2_ADDR & !WE_DEB
+
+F_PRGM_2.ap  =>
+    !RESET_AL
+
+F_PRGM_2.ck  =>
+    XCLK_A
+
+F_PRGM_2_ADDR =>
+    !ABB8 & ABB9 & !ABB10 & !ABB11 & ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18
+
+MISO_ENA.k  =>
+    MISO_ENA_ADDR & !RE_BUF
+
+MISO_ENA.j  =>
+    MISO_ENA_ADDR & !WE_BUF
+
+MISO_ENA.ap  =>
+    !RESET_AL
+
+MISO_ENA.ck  =>
+    XCLK_A
+
+MISO_ENA_ADDR =>
+    ABB8 & ABB9 & ABB10 & !ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18
+
+QUALIFIER_01 =>
+    RESET_AL & !RE_AL & !RE_BUF
+  # RESET_AL & !WE_AL & !WE_BUF
+
+QUALIFIER_02 =>
+    !WE_AL
+
+QUALIFIER_03 =>
+    !CXS_AL & RESET_AL
+
+RE_BUF.d  =>
+    RE_AL
+
+RE_BUF.ap  =>
+    !RESET_AL
+
+RE_BUF.ck  =>
+    XCLK_A
+
+RE_BUF2.d  =>
+    RE_BUF
+
+RE_BUF2.ap  =>
+    !RESET_AL
+
+RE_BUF2.ck  =>
+    XCLK_A
+
+RE_DEB =>
+    RE_BUF
+  # RE_BUF2
+
+RS_232.k  =>
+    !RE_BUF & RS_232_ADDR
+
+RS_232.j  =>
+    RS_232_ADDR & !WE_BUF
+
+RS_232.ar  =>
+    !RESET_AL
+
+RS_232.ck  =>
+    XCLK_A
+
+RS_232_ADDR =>
+    ABB8 & !ABB9 & !ABB10 & !ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & 
+      !ABB16 & !ABB17 & !ABB18
+
+TX2_BUF_ENA.j  =>
+    TX2_BUF_ENA_ADDR & !WE_BUF
+
+TX2_BUF_ENA.k  =>
+    !RE_BUF & TX2_BUF_ENA_ADDR
+
+TX2_BUF_ENA.ap  =>
+    !RESET_AL
+
+TX2_BUF_ENA.ck  =>
+    XCLK_A
+
+TX2_BUF_ENA_ADDR =>
+    !ABB8 & ABB9 & !ABB10 & !ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & 
+      !ABB16 & !ABB17 & !ABB18
+
+WE_BUF.d  =>
+    WE_AL
+
+WE_BUF.ap  =>
+    !RESET_AL
+
+WE_BUF.ck  =>
+    XCLK_A
+
+WE_BUF2.d  =>
+    WE_BUF
+
+WE_BUF2.ap  =>
+    !RESET_AL
+
+WE_BUF2.ck  =>
+    XCLK_A
+
+WE_DEB =>
+    WE_BUF
+  # WE_BUF2
+
+WP_FLASH_1.j  =>
+    !WE_BUF & WP_FLASH_1_ADDR
+
+WP_FLASH_1.k  =>
+    !RE_BUF & WP_FLASH_1_ADDR
+
+WP_FLASH_1.ar  =>
+    !RESET_AL
+
+WP_FLASH_1.ck  =>
+    XCLK_A
+
+WP_FLASH_1_ADDR =>
+    ABB8 & ABB9 & !ABB10 & ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18
+
+WP_FLASH_2.j  =>
+    !WE_BUF & WP_FLASH_2_ADDR
+
+WP_FLASH_2.k  =>
+    !RE_BUF & WP_FLASH_2_ADDR
+
+WP_FLASH_2.ar  =>
+    !RESET_AL
+
+WP_FLASH_2.ck  =>
+    XCLK_A
+
+WP_FLASH_2_ADDR =>
+    !ABB8 & !ABB9 & !ABB10 & ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & 
+      !ABB16 & !ABB17 & !ABB18
+
+WP_I2C_EEPROM.k  =>
+    !RE_BUF & WP_I2C_EEPROM_ADDR
+
+WP_I2C_EEPROM.j  =>
+    !WE_BUF & WP_I2C_EEPROM_ADDR
+
+WP_I2C_EEPROM.ar  =>
+    !RESET_AL
+
+WP_I2C_EEPROM.ck  =>
+    XCLK_A
+
+WP_I2C_EEPROM_ADDR =>
+    ABB8 & ABB9 & !ABB10 & !ABB11 & !ABB12 & !ABB13 & !ABB14 & !ABB15 & !ABB16 & 
+      !ABB17 & !ABB18
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    AB8                         6        V        -       -       -     
+    AB9                         8        V        -       -       -     
+    AB10                        9        V        -       -       -     
+    AB11                        10       V        -       -       -     
+    AB12                        12       V        -       -       -     
+    AB13                        13       V        -       -       -     
+    AB14                        14       V        -       -       -     
+    AB15                        16       V        -       -       -     
+    AB16                        17       V        -       -       -     
+    AB17                        19       V        -       -       -     
+    AB18                        20       V        -       -       -     
+    ABB8                        111      N        -       -       -     
+    ABB8                d       111      M        1       0       1     
+    ABB8                ck      111      M        1       0       1     
+    ABB9                        110      N        -       -       -     
+    ABB9                d       110      M        1       0       1     
+    ABB9                ck      110      M        1       0       1     
+    ABB10                       109      N        -       -       -     
+    ABB10               d       109      M        1       0       1     
+    ABB10               ck      109      M        1       0       1     
+    ABB11                       108      N        -       -       -     
+    ABB11               d       108      M        1       0       1     
+    ABB11               ck      108      M        1       0       1     
+    ABB12                       107      N        -       -       -     
+    ABB12               d       107      M        1       0       1     
+    ABB12               ck      107      M        1       0       1     
+    ABB13                       106      N        -       -       -     
+    ABB13               d       106      M        1       0       1     
+    ABB13               ck      106      M        1       0       1     
+    ABB14                       105      N        -       -       -     
+    ABB14               d       105      M        1       0       1     
+    ABB14               ck      105      M        1       0       1     
+    ABB15                       104      N        -       -       -     
+    ABB15               d       104      M        1       0       1     
+    ABB15               ck      104      M        1       0       1     
+    ABB16                       103      N        -       -       -     
+    ABB16               d       103      M        1       0       1     
+    ABB16               ck      103      M        1       0       1     
+    ABB17                       102      N        -       -       -     
+    ABB17               d       102      M        1       0       1     
+    ABB17               ck      102      M        1       0       1     
+    ABB18                       101      N        -       -       -     
+    ABB18               d       101      M        1       0       1     
+    ABB18               ck      101      M        1       0       1     
+    CPLD_LED_0                  76       V        -       -       -     
+    CPLD_LED_0          k       76       X        1       0       1     
+    CPLD_LED_0          j       76       X        1       0       1     
+    CPLD_LED_0          ar      76       X        1       0       1     
+    CPLD_LED_0          ck      76       X        1       0       1     
+    CPLD_LED_0_ADDR             133      N        1       0       1     
+    CPLD_LED_1                  64       V        -       -       -     
+    CPLD_LED_1          j       64       X        1       0       1     
+    CPLD_LED_1          k       64       X        1       0       1     
+    CPLD_LED_1          ap      64       X        1       0       1     
+    CPLD_LED_1          ck      64       X        1       0       1     
+    CPLD_LED_1_ADDR             134      N        1       0       1     
+    CPLD_SPARE_0                67       V        4       0       1     
+    CPLD_SPARE_1                68       V        4       0       1     
+    CPLD_SPARE_2                69       V        1       0       1     
+    CPLD_SPARE_3                71       V        1       0       1     
+    CPLD_TP_0                   52       V        2       0       1     
+    CPLD_TP_0_ADDR              129      N        -       -       -     
+    CPLD_TP_0_ADDR_AM           139      N        1       0       1     
+    CPLD_TP_1                   54       V        2       0       1     
+    CPLD_TP_1_ADDR              130      N        -       -       -     
+    CPLD_TP_1_ADDR_AM           140      N        1       0       1     
+    CPLD_TP_2                   56       V        2       0       1     
+    CPLD_TP_2_ADDR              131      N        -       -       -     
+    CPLD_TP_2_ADDR_AM           141      N        1       0       1     
+    CPLD_TP_3                   57       V        2       0       1     
+    CPLD_TP_3_ADDR              132      N        -       -       -     
+    CPLD_TP_3_ADDR_AM           142      N        1       0       1     
+    CS_FLASH_1                  44       V        -       -       -     
+    CS_FLASH_1          j       44       X        1       0       1     
+    CS_FLASH_1          k       44       X        1       0       1     
+    CS_FLASH_1          ap      44       X        1       0       1     
+    CS_FLASH_1          ck      44       X        1       0       1     
+    CS_FLASH_1_ADDR             126      N        1       0       1     
+    CS_FLASH_2                  45       V        -       -       -     
+    CS_FLASH_2          k       45       X        1       0       1     
+    CS_FLASH_2          j       45       X        1       0       1     
+    CS_FLASH_2          ap      45       X        1       0       1     
+    CS_FLASH_2          ck      45       X        1       0       1     
+    CS_FLASH_2_ADDR             127      N        1       0       1     
+    CS_FPGA_1_AL                47       V        4       0       1     
+    CS_FPGA_2_AL                48       V        4       0       1     
+    CXS_AL                      80       V        -       -       -     
+    EE_I2C_CLK_ENA              30       V        -       -       -     
+    EE_I2C_CLK_ENA      k       30       X        1       0       1     
+    EE_I2C_CLK_ENA      j       30       X        1       0       1     
+    EE_I2C_CLK_ENA      ap      30       X        1       0       1     
+    EE_I2C_CLK_ENA      ck      30       X        1       0       1     
+    EE_I2C_CLK_ENA_ADDR         121      N        1       0       1     
+    FPGA1_RESET                 31       V        -       -       -     
+    FPGA1_RESET         k       31       X        1       0       1     
+    FPGA1_RESET         j       31       X        1       0       1     
+    FPGA1_RESET         ar      31       X        1       0       1     
+    FPGA1_RESET         ck      31       X        1       0       1     
+    FPGA1_RESET_ADDR            122      N        1       0       1     
+    FPGA2_RESET                 32       V        -       -       -     
+    FPGA2_RESET         k       32       X        1       0       1     
+    FPGA2_RESET         j       32       X        1       0       1     
+    FPGA2_RESET         ar      32       X        1       0       1     
+    FPGA2_RESET         ck      32       X        1       0       1     
+    FPGA2_RESET_ADDR            123      N        1       0       1     
+    F_PRGM_2                    92       V        -       -       -     
+    F_PRGM_2            k       92       X        1       0       1     
+    F_PRGM_2            j       92       X        1       0       1     
+    F_PRGM_2            ap      92       X        1       0       1     
+    F_PRGM_2            ck      92       X        1       0       1     
+    F_PRGM_2_ADDR               135      N        1       0       1     
+    MISO_ENA                    33       V        -       -       -     
+    MISO_ENA            k       33       X        1       0       1     
+    MISO_ENA            j       33       X        1       0       1     
+    MISO_ENA            ap      33       X        1       0       1     
+    MISO_ENA            ck      33       X        1       0       1     
+    MISO_ENA_ADDR               124      N        1       0       1     
+    QUALIFIER_01                136      N        2       0       1     
+    QUALIFIER_02                137      N        1       0       1     
+    QUALIFIER_03                138      N        1       0       1     
+    RESET_AL                    89       V        -       -       -     
+    RE_AL                       83       V        -       -       -     
+    RE_BUF                      113      N        -       -       -     
+    RE_BUF              d       113      M        1       0       1     
+    RE_BUF              ap      113      M        1       0       1     
+    RE_BUF              ck      113      M        1       0       1     
+    RE_BUF2                     115      N        -       -       -     
+    RE_BUF2             d       115      M        1       0       1     
+    RE_BUF2             ap      115      M        1       0       1     
+    RE_BUF2             ck      115      M        1       0       1     
+    RE_DEB                      117      N        2       0       1     
+    RS_232                      21       V        -       -       -     
+    RS_232              k       21       X        1       0       1     
+    RS_232              j       21       X        1       0       1     
+    RS_232              ar      21       X        1       0       1     
+    RS_232              ck      21       X        1       0       1     
+    RS_232_ADDR                 118      N        1       0       1     
+    TX2_BUF_ENA                 23       V        -       -       -     
+    TX2_BUF_ENA         j       23       X        1       0       1     
+    TX2_BUF_ENA         k       23       X        1       0       1     
+    TX2_BUF_ENA         ap      23       X        1       0       1     
+    TX2_BUF_ENA         ck      23       X        1       0       1     
+    TX2_BUF_ENA_ADDR            119      N        1       0       1     
+    WE_AL                       84       V        -       -       -     
+    WE_BUF                      112      N        -       -       -     
+    WE_BUF              d       112      M        1       0       1     
+    WE_BUF              ap      112      M        1       0       1     
+    WE_BUF              ck      112      M        1       0       1     
+    WE_BUF2                     114      N        -       -       -     
+    WE_BUF2             d       114      M        1       0       1     
+    WE_BUF2             ap      114      M        1       0       1     
+    WE_BUF2             ck      114      M        1       0       1     
+    WE_DEB                      116      N        2       0       1     
+    WP_FLASH_1                  46       V        -       -       -     
+    WP_FLASH_1          j       46       X        1       0       1     
+    WP_FLASH_1          k       46       X        1       0       1     
+    WP_FLASH_1          ar      46       X        1       0       1     
+    WP_FLASH_1          ck      46       X        1       0       1     
+    WP_FLASH_1_ADDR             128      N        1       0       1     
+    WP_FLASH_2                  42       V        -       -       -     
+    WP_FLASH_2          j       42       X        1       0       1     
+    WP_FLASH_2          k       42       X        1       0       1     
+    WP_FLASH_2          ar      42       X        1       0       1     
+    WP_FLASH_2          ck      42       X        1       0       1     
+    WP_FLASH_2_ADDR             125      N        1       0       1     
+    WP_I2C_EEPROM               29       V        -       -       -     
+    WP_I2C_EEPROM       k       29       X        1       0       1     
+    WP_I2C_EEPROM       j       29       X        1       0       1     
+    WP_I2C_EEPROM       ar      29       X        1       0       1     
+    WP_I2C_EEPROM       ck      29       X        1       0       1     
+    WP_I2C_EEPROM_ADDR          120      N        1       0       1     
+    XCLK_A                      87       V        -       -       -     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+

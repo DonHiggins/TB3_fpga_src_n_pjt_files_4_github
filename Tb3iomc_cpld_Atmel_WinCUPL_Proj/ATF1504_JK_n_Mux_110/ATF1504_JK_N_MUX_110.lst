@@ -1,0 +1,610 @@
+LISTING FOR LOGIC DESCRIPTION FILE: ATF1504_JK_N_MUX_110.pld         Page 1
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jul 11 11:21:19 2016
+
+  1:Name     ATF1504_JK_n_Mux_110 ;
+  2:PartNo   001 ;
+  3:Date     07/11/2016 ;
+  4:Revision 01 ;
+  5:Designer DH ;
+  6:Company  AMC ;
+  7:Assembly None ;
+  8:Location None ;
+  9:Device   f1504isptqfp100 ;
+ 10:
+ 11:/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+ 12:/*                                                                                     */
+ 13:/* CPLD Design for TB3IOMB                                                             */
+ 14:/* Implements several instances of 2 types of logic circuits.                          */
+ 15:/* 1) Outputs that are latched to either HI or LOW based on Addr Bus, Read, & Write.   */
+ 16:/* 2) Asynchronous Mux outputs based on Address Bus.                                   */
+ 17:/* All circuits deliver appropriate outputs on Reset.                                  */
+ 18:/*                                                                                     */
+ 19:/* 7/11/2016  -- Start of testing TB3CMC. Formerly, CPLD_TP_0,1,2,3 either strobed in  */
+ 20:/*               response to their specific address as async mux, or else they were    */
+ 21:/*               set as J/K FF at that address, or else we brough out some other       */
+ 22:/*               signal of interest on that pin.  Now, whatever signal comes out on    */
+ 23:/*               the pin, we XOR a strobe onto that signal when you address the test   */
+ 24:/*               point.                                                                */
+ 25:/* 2/24/2015  -- DH Add support for F_PRGM_2 allow loading FPGA2 from Flash            */
+ 26:/* 2/19/2015  -- DH route Flash_1 & 2 CS & WP signals to CPLD_TP_0-3,                  */
+ 27:/*               to help debug reading and writing to two flash chips.                 */
+ 28:/* 2/12/2015  -- DH Fix err, where CPLD_TP_2 PIN 56 was wronglyly assigned pin 55 (nc) */
+ 29:/*               also PIN 67 = CPLD_SPARE_0 wronglyly assigned pin 76 (CPLD_LED_0)     */
+ 30:/*               (this was a vexing error, as it did not show errors at WINCPL compile */
+ 31:/*               or at load time in Atmel_Isp -- It just made the CPLD not function    */
+ 32:/*               at all when I loaded it into the CPLD.)                               */
+ 33:/* 11/07/2014 -- DH New addresses and pin assignments for TB3IOMB                      */
+ 34:/*               see X:\Digital_Test_Station_TB3\CPLD_Program\TS3_CPLD_Design\         */
+ 35:/*                     Bus_Enable_and_Address_Scheme_2014_11_07.docx                   */
+ 36:/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+ 37:
+ 38:PROPERTY ATMEL {TDI_pullup = ON};
+ 39:PROPERTY ATMEL {TMS_pullup = ON};
+ 40:
+ 41:/* *********** CONVENTIONS for latched SET / RESET Outputs **************     */
+ 42:/* Here we have latched SET / RESET CPLD outputs, AKA "J/K"                   */
+ 43:/* DSP Writes to a particular range of addresses to SET the output HI.        */
+ 44:/* Read from that same address range to RESET the output LOW.                 */
+ 45:/* Active low outputs are not treated any different from active hi outputs.   */
+ 46:/* In other words, SET and RESET indicate HI and LOW, not Active/Inactive.    */
+ 47:/* Each latched output is initialized when RESET (active LOW) is asserted.    */
+ 48:/* Initial state varies from circuit to circuit depending on its use.         */
+ 49:/* For instance active-LOW chip select outputs are initialized HI on RESET,   */
+ 50:/* LED Outputs are initialized LOW on RESET.                                  */
+ 51:
+ 52:
+ 53:/* *************** INPUT PINS *********************/
+
+LISTING FOR LOGIC DESCRIPTION FILE: ATF1504_JK_N_MUX_110.pld         Page 2
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jul 11 11:21:19 2016
+
+ 54:PIN [20, 19, 17, 16, 14, 13, 12, 10, 9, 8, 6] = [AB18..8];  /* Address Bus */
+ 55:PIN 89 = RESET_AL;
+ 56:PIN 87 = XCLK_A;
+ 57:PIN 84 = WE_AL; /* Write Enable */
+ 58:PIN 83 = RE_AL; /* Read Enable */
+ 59:PIN 80 = CXS_AL; /* External Bus Enable */
+ 60:
+ 61:/* *************** OUTPUT PINS for J/K LATCHED OUTPUTS*********************/
+ 62:
+ 63:PIN 21 = RS_232;
+ 64:PIN 23 = TX2_BUF_ENA;
+ 65:PIN 29 = WP_I2C_EEPROM;
+ 66:PIN 30 = EE_I2C_CLK_ENA;
+ 67:PIN 31 = FPGA1_RESET;
+ 68:PIN 32 = FPGA2_RESET;
+ 69:PIN 33 = MISO_ENA;
+ 70:PIN 42 = WP_FLASH_2;
+ 71:PIN 44 = CS_FLASH_1;
+ 72:PIN 45 = CS_FLASH_2;
+ 73:PIN 46 = WP_FLASH_1;
+ 74:PIN 52 = CPLD_TP_0;
+ 75:PIN 54 = CPLD_TP_1;
+ 76:PIN 56 = CPLD_TP_2;
+ 77:PIN 57 = CPLD_TP_3;
+ 78:PIN 76 = CPLD_LED_0;
+ 79:PIN 64 = CPLD_LED_1;
+ 80:PIN 92 = F_PRGM_2;
+ 81:
+ 82:/* ***************    NODES    *********************/
+ 83:/*    Buffered address and control signals         */
+ 84:NODE [ABB18..8];
+ 85:NODE WE_BUF;
+ 86:NODE RE_BUF;
+ 87:NODE WE_BUF2;
+ 88:NODE RE_BUF2;
+ 89:NODE WE_DEB;
+ 90:NODE RE_DEB;
+ 91:
+ 92:/* Node activated by correct addr range for each signal */
+ 93:NODE RS_232_ADDR;
+ 94:NODE TX2_BUF_ENA_ADDR;
+ 95:NODE WP_I2C_EEPROM_ADDR;
+ 96:NODE EE_I2C_CLK_ENA_ADDR;
+ 97:NODE FPGA1_RESET_ADDR;
+ 98:NODE FPGA2_RESET_ADDR;
+ 99:NODE MISO_ENA_ADDR;
+100:NODE WP_FLASH_2_ADDR;
+101:NODE CS_FLASH_1_ADDR;
+102:NODE CS_FLASH_2_ADDR;
+103:NODE WP_FLASH_1_ADDR;
+104:NODE CPLD_TP_0_ADDR;
+105:NODE CPLD_TP_1_ADDR;
+106:NODE CPLD_TP_2_ADDR;
+107:NODE CPLD_TP_3_ADDR;
+
+LISTING FOR LOGIC DESCRIPTION FILE: ATF1504_JK_N_MUX_110.pld         Page 3
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jul 11 11:21:19 2016
+
+108:NODE CPLD_LED_0_ADDR;
+109:NODE CPLD_LED_1_ADDR;
+110:NODE F_PRGM_2_ADDR;
+111:
+112:
+113:/* On Clock, latch the address bus, read-enable & write-enable lines */
+114:/* ~RESET causes async-preset to set WE_BUF and RE_BUF HI (inactive) */
+115:/* Extend bufferring for 2nd clk cycle into WE_BUF2 and RE_BUF2 */
+116:/* Provide debounced signals WE_DEB and RE_DEB, */
+117:/* as OR of single-buffered and double-buffered values */
+118:[ABB18..8].d = [AB18..8];
+119:[ABB18..8].ck = XCLK_A;
+120:WE_BUF.d = WE_AL;
+121:WE_BUF.ck = XCLK_A;
+122:WE_BUF.ap = (!RESET_AL);
+123:RE_BUF.d = RE_AL;
+124:RE_BUF.ck = XCLK_A;
+125:RE_BUF.ap = (!RESET_AL);
+126:WE_BUF2.d = WE_BUF;
+127:WE_BUF2.ck = XCLK_A;
+128:WE_BUF2.ap = (!RESET_AL);
+129:RE_BUF2.d = RE_BUF;
+130:RE_BUF2.ck = XCLK_A;
+131:RE_BUF2.ap = (!RESET_AL);
+132:WE_DEB = WE_BUF # WE_BUF2;
+133:RE_DEB = RE_BUF # RE_BUF2;
+134:
+135:/* QUALIFIERS -- in the J/K Flip Flop Output circuits we look for a */
+136:/* particular address range on the address bus, and we qualify that */
+137:/* with RE, WE and RESET. I have experimented with 2 different options */
+138:/* Option 1 is to qualify with the single-buffered RE_BUF or WE_BUF */
+139:/* Option 2 qualifies with double buffered and debounced RE_DEB and WE_DEB */
+140:/* It probably doesn't matter which of those 2 options we use for J/K outputs */
+141:/* I have some scope pictures for reference in CPLD_Buf_n_DeBounce.docx */
+142:/* In the J/K Flips I used mainly 
+143:RE_BUF or WE_BUF, but for the LEDs */
+144:/* I retained some examples of the RE_DEB and WE_DEB qualifiers. */
+145:
+146:/* ON RESET HI / LOW ?                                                      - */
+147:/* <signal>.ap (!RESET_AL) -- .ap = Async Preset -- sets output HI on reset - */
+148:/* <signal>.ar (!RESET_AL) -- .ar = Async Reset -- sets output LOW on reset - */
+149:
+150:
+151:/* - JK Latched Output w/ Async Reset or Preset - - - */
+152:/* - Activated by Address Bus, Read / Write - - - - - */
+153:/*   PIN 21 = RS_232                           */
+154:/*   Ext Addr: 0x00,01xx                       */
+155:/*   Dsp Addr: 0x08,01xx                       */
+156:/*   on Reset: LOW                             */
+157:RS_232_ADDR     = [ABB18..8]:001xx; 
+158:RS_232.J = RS_232_ADDR & (!WE_BUF);  /* Default qualifier is single-buffered WE or RE */
+159:RS_232.K = RS_232_ADDR & (!RE_BUF);
+160:RS_232.ck = XCLK_A;
+161:RS_232.ar = (!RESET_AL);
+
+LISTING FOR LOGIC DESCRIPTION FILE: ATF1504_JK_N_MUX_110.pld         Page 4
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jul 11 11:21:19 2016
+
+162:
+163:
+164:/* - JK Latched Output w/ Async Reset or Preset - - - */
+165:/* - Activated by Address Bus, Read / Write - - - - - */
+166:/*   PIN 23 = TX2_BUF_ENA                      */
+167:/*   Ext Addr: 0x00,02xx                       */
+168:/*   Dsp Addr: 0x08,02xx                       */
+169:/*   on Reset: HI                              */
+170:TX2_BUF_ENA_ADDR     = [ABB18..8]:002xx; 
+171:TX2_BUF_ENA.J = TX2_BUF_ENA_ADDR & (!WE_BUF);  /* Default qualifier is single-buffered WE or RE */
+172:TX2_BUF_ENA.K = TX2_BUF_ENA_ADDR & (!RE_BUF);
+173:TX2_BUF_ENA.ck = XCLK_A;
+174:TX2_BUF_ENA.ap = (!RESET_AL);
+175:
+176:
+177:/* - JK Latched Output w/ Async Reset or Preset - - - */
+178:/* - Activated by Address Bus, Read / Write - - - - - */
+179:/*   PIN 29 = WP_I2C_EEPROM                      */
+180:/*   Ext Addr: 0x00,03xx                       */
+181:/*   Dsp Addr: 0x08,03xx                       */
+182:/*   on Reset: LOW                              */
+183:WP_I2C_EEPROM_ADDR     = [ABB18..8]:003xx; 
+184:WP_I2C_EEPROM.J = WP_I2C_EEPROM_ADDR & (!WE_BUF);  /* Default qualifier is single-buffered WE or RE */
+185:WP_I2C_EEPROM.K = WP_I2C_EEPROM_ADDR & (!RE_BUF);
+186:WP_I2C_EEPROM.ck = XCLK_A;
+187:WP_I2C_EEPROM.ar = (!RESET_AL);
+188:
+189:
+190:
+191:/* - JK Latched Output w/ Async Reset or Preset - - - */
+192:/* - Activated by Address Bus, Read / Write - - - - - */
+193:/*   PIN 30 = EE_I2C_CLK_ENA                   */
+194:/*   Ext Addr: 0x00,04xx                       */
+195:/*   Dsp Addr: 0x08,04xx                       */
+196:/*   on Reset: HI                              */
+197:EE_I2C_CLK_ENA_ADDR     = [ABB18..8]:004xx; 
+198:EE_I2C_CLK_ENA.J = EE_I2C_CLK_ENA_ADDR & (!WE_BUF);  /* Default qualifier is single-buffered WE or RE */
+199:EE_I2C_CLK_ENA.K = EE_I2C_CLK_ENA_ADDR & (!RE_BUF);
+200:EE_I2C_CLK_ENA.ck = XCLK_A;
+201:EE_I2C_CLK_ENA.ap = (!RESET_AL);
+202:
+203:
+204:/* - JK Latched Output w/ Async Reset or Preset - - - */
+205:/* - Activated by Address Bus, Read / Write - - - - - */
+206:/*   PIN 31 = FPGA1_RESET                      */
+207:/*   Ext Addr: 0x00,05xx                       */
+208:/*   Dsp Addr: 0x08,05xx                       */
+209:/*   on Reset: LOW                             */
+210:FPGA1_RESET_ADDR     = [ABB18..8]:005xx; 
+211:FPGA1_RESET.J = FPGA1_RESET_ADDR & (!WE_BUF);  /* Default qualifier is single-buffered WE or RE */
+212:FPGA1_RESET.K = FPGA1_RESET_ADDR & (!RE_BUF);
+213:FPGA1_RESET.ck = XCLK_A;
+214:FPGA1_RESET.ar = (!RESET_AL);
+215:
+
+LISTING FOR LOGIC DESCRIPTION FILE: ATF1504_JK_N_MUX_110.pld         Page 5
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jul 11 11:21:19 2016
+
+216:
+217:/* - JK Latched Output w/ Async Reset or Preset - - - */
+218:/* - Activated by Address Bus, Read / Write - - - - - */
+219:/*   PIN 32 = FPGA2_RESET                      */
+220:/*   Ext Addr: 0x00,06xx                       */
+221:/*   Dsp Addr: 0x08,06xx                       */
+222:/*   on Reset: LOW                             */
+223:FPGA2_RESET_ADDR     = [ABB18..8]:006xx; 
+224:FPGA2_RESET.J = FPGA2_RESET_ADDR & (!WE_BUF);  /* Default qualifier is single-buffered WE or RE */
+225:FPGA2_RESET.K = FPGA2_RESET_ADDR & (!RE_BUF);
+226:FPGA2_RESET.ck = XCLK_A;
+227:FPGA2_RESET.ar = (!RESET_AL);
+228:
+229:
+230:/* - JK Latched Output w/ Async Reset or Preset - - - */
+231:/* - Activated by Address Bus, Read / Write - - - - - */
+232:/*   PIN 33 = MISO_ENA                         */
+233:/*   Ext Addr: 0x00,07xx                       */
+234:/*   Dsp Addr: 0x08,07xx                       */
+235:/*   on Reset: HI                              */
+236:MISO_ENA_ADDR     = [ABB18..8]:007xx; 
+237:MISO_ENA.J = MISO_ENA_ADDR & (!WE_BUF);  /* Default qualifier is single-buffered WE or RE */
+238:MISO_ENA.K = MISO_ENA_ADDR & (!RE_BUF);
+239:MISO_ENA.ck = XCLK_A;
+240:MISO_ENA.ap = (!RESET_AL);
+241:
+242:
+243:/* - JK Latched Output w/ Async Reset or Preset - - - */
+244:/* - Activated by Address Bus, Read / Write - - - - - */
+245:/*   PIN 42 = WP_FLASH_2                       */
+246:/*   Ext Addr: 0x00,08xx                       */
+247:/*   Dsp Addr: 0x08,08xx                       */
+248:/*   on Reset: LOW                             */
+249:WP_FLASH_2_ADDR     = [ABB18..8]:008xx; 
+250:WP_FLASH_2.J = WP_FLASH_2_ADDR & (!WE_BUF);  /* Default qualifier is single-buffered WE or RE */
+251:WP_FLASH_2.K = WP_FLASH_2_ADDR & (!RE_BUF);
+252:WP_FLASH_2.ck = XCLK_A;
+253:WP_FLASH_2.ar = (!RESET_AL);
+254:
+255:
+256:/* - JK Latched Output w/ Async Reset or Preset - - - */
+257:/* - Activated by Address Bus, Read / Write - - - - - */
+258:/*   PIN 44 = CS_FLASH_1                       */
+259:/*   Ext Addr: 0x00,09xx                       */
+260:/*   Dsp Addr: 0x08,09xx                       */
+261:/*   on Reset: HI                              */
+262:CS_FLASH_1_ADDR     = [ABB18..8]:009xx; 
+263:CS_FLASH_1.J = CS_FLASH_1_ADDR & (!WE_BUF);  /* Default qualifier is single-buffered WE or RE */
+264:CS_FLASH_1.K = CS_FLASH_1_ADDR & (!RE_BUF);
+265:CS_FLASH_1.ck = XCLK_A;
+266:CS_FLASH_1.ap = (!RESET_AL);
+267:
+268:
+269:/* - JK Latched Output w/ Async Reset or Preset - - - */
+
+LISTING FOR LOGIC DESCRIPTION FILE: ATF1504_JK_N_MUX_110.pld         Page 6
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jul 11 11:21:19 2016
+
+270:/* - Activated by Address Bus, Read / Write - - - - - */
+271:/*   PIN 45 = CS_FLASH_2                       */
+272:/*   Ext Addr: 0x00,0Axx                       */
+273:/*   Dsp Addr: 0x08,0Axx                       */
+274:/*   on Reset: HI                              */
+275:CS_FLASH_2_ADDR     = [ABB18..8]:00Axx; 
+276:CS_FLASH_2.J = CS_FLASH_2_ADDR & (!WE_BUF);  /* Default qualifier is single-buffered WE or RE */
+277:CS_FLASH_2.K = CS_FLASH_2_ADDR & (!RE_BUF);
+278:CS_FLASH_2.ck = XCLK_A;
+279:CS_FLASH_2.ap = (!RESET_AL);
+280:
+281:
+282:/* - JK Latched Output w/ Async Reset or Preset - - - */
+283:/* - Activated by Address Bus, Read / Write - - - - - */
+284:/*   PIN 46 = WP_FLASH_1                       */
+285:/*   Ext Addr: 0x00,0Bxx                       */
+286:/*   Dsp Addr: 0x08,0Bxx                       */
+287:/*   on Reset: LOW                             */
+288:WP_FLASH_1_ADDR     = [ABB18..8]:00Bxx; 
+289:WP_FLASH_1.J = WP_FLASH_1_ADDR & (!WE_BUF);  /* Default qualifier is single-buffered WE or RE */
+290:WP_FLASH_1.K = WP_FLASH_1_ADDR & (!RE_BUF);
+291:WP_FLASH_1.ck = XCLK_A;
+292:WP_FLASH_1.ar = (!RESET_AL);
+293:
+294:
+295:/* - JK Latched Output w/ Async Reset or Preset - - - */
+296:/* - Activated by Address Bus, Read / Write - - - - - */
+297:/*   PIN 52 = CPLD_TP_0                        */
+298:/*   Ext Addr: 0x00,0Cxx                       */
+299:/*   Dsp Addr: 0x08,0Cxx                       */
+300:/*   on Reset: LOW                             */
+301:/* CPLD_TP_0_ADDR     = [ABB18..8]:00Cxx; */ 
+302:/* CPLD_TP_0.J = CPLD_TP_0_ADDR & (!WE_BUF); */  /* Default qualifier is single-buffered WE or RE */
+303:/* CPLD_TP_0.K = CPLD_TP_0_ADDR & (!RE_BUF); */
+304:/* CPLD_TP_0.ck = XCLK_A; */
+305:/* CPLD_TP_0.ar = (!RESET_AL); */
+306:
+307:
+308:/* - JK Latched Output w/ Async Reset or Preset - - - */
+309:/* - Activated by Address Bus, Read / Write - - - - - */
+310:/*   PIN 54 = CPLD_TP_1                        */
+311:/*   Ext Addr: 0x00,0Dxx                       */
+312:/*   Dsp Addr: 0x08,0Dxx                       */
+313:/*   on Reset: LOW                             */
+314:/* CPLD_TP_1_ADDR     = [ABB18..8]:00Dxx; */ 
+315:/* CPLD_TP_1.J = CPLD_TP_1_ADDR & (!WE_BUF); */  /* Default qualifier is single-buffered WE or RE */
+316:/* CPLD_TP_1.K = CPLD_TP_1_ADDR & (!RE_BUF); */
+317:/* CPLD_TP_1.ck = XCLK_A; */
+318:/* CPLD_TP_1.ar = (!RESET_AL); */
+319:
+320:
+321:/* - JK Latched Output w/ Async Reset or Preset - - - */
+322:/* - Activated by Address Bus, Read / Write - - - - - */
+323:/*   PIN 55 = CPLD_TP_2                        */
+
+LISTING FOR LOGIC DESCRIPTION FILE: ATF1504_JK_N_MUX_110.pld         Page 7
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jul 11 11:21:19 2016
+
+324:/*   Ext Addr: 0x00,0Exx                       */
+325:/*   Dsp Addr: 0x08,0Exx                       */
+326:/*   on Reset: LOW                             */
+327:/* CPLD_TP_2_ADDR  = [ABB18..8]:00Exx; */
+328:/* CPLD_TP_2.J = CPLD_TP_2_ADDR & (!WE_DEB); */  /* Example w debounced WE & RE alternate qualifier */
+329:/* CPLD_TP_2.K = CPLD_TP_2_ADDR & (!RE_DEB); */
+330:/* CPLD_TP_2.ck = XCLK_A; */
+331:/* CPLD_TP_2.ar = (!RESET_AL); */
+332:
+333:
+334:/* - JK Latched Output w/ Async Reset or Preset - - - */
+335:/* - Activated by Address Bus, Read / Write - - - - - */
+336:/*   PIN 57 = CPLD_TP_3                        */
+337:/*   Ext Addr: 0x00,0Fxx                       */
+338:/*   Dsp Addr: 0x08,0Fxx                       */
+339:/*   on Reset: LOW                             */
+340:/* CPLD_TP_3_ADDR  = [ABB18..8]:00Fxx; */  
+341:/* CPLD_TP_3.J = CPLD_TP_3_ADDR & (!WE_DEB); */  /* Example w debounced WE & RE alternate qualifier */
+342:/* CPLD_TP_3.K = CPLD_TP_3_ADDR & (!RE_DEB); */
+343:/* CPLD_TP_3.ck = XCLK_A; */
+344:/* CPLD_TP_3.ar = (!RESET_AL); */
+345:
+346:
+347:/* - JK Latched Output w/ Async Reset or Preset - - - */
+348:/* - Activated by Address Bus, Read / Write - - - - - */
+349:/*   PIN 76 = CPLD_LED_0                       */
+350:/*   Ext Addr: 0x00,10xx                       */
+351:/*   Dsp Addr: 0x08,10xx                       */
+352:/*   on Reset: LOW                             */
+353:CPLD_LED_0_ADDR  = [ABB18..8]:010xx;  
+354:CPLD_LED_0.J = CPLD_LED_0_ADDR & (!WE_DEB);  /* Example w debounced WE & RE alternate qualifier */
+355:CPLD_LED_0.K = CPLD_LED_0_ADDR & (!RE_DEB);
+356:CPLD_LED_0.ck = XCLK_A;
+357:CPLD_LED_0.ar = (!RESET_AL);
+358:
+359:
+360:/* - JK Latched Output w/ Async Reset or Preset - - - */
+361:/* - Activated by Address Bus, Read / Write - - - - - */
+362:/*   PIN 64 = CPLD_LED_1                       */
+363:/*   Ext Addr: 0x00,11xx                       */
+364:/*   Dsp Addr: 0x08,11xx                       */
+365:/*   on Reset: HI                              */
+366:CPLD_LED_1_ADDR  = [ABB18..8]:011xx;  
+367:CPLD_LED_1.J = CPLD_LED_1_ADDR & (!WE_DEB);  /* Example w debounced WE & RE alternate qualifier */
+368:CPLD_LED_1.K = CPLD_LED_1_ADDR & (!RE_DEB);
+369:CPLD_LED_1.ck = XCLK_A;
+370:CPLD_LED_1.ap = (!RESET_AL);
+371:
+372:/* - JK Latched Output w/ Async Reset or Preset - - - */
+373:/* - Activated by Address Bus, Read / Write - - - - - */
+374:/*   PIN 92 = F_PRGM_2                         */
+375:/*   Ext Addr: 0x00,12xx                       */
+376:/*   Dsp Addr: 0x08,12xx                       */
+377:/*   on Reset: HI                              */
+
+LISTING FOR LOGIC DESCRIPTION FILE: ATF1504_JK_N_MUX_110.pld         Page 8
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jul 11 11:21:19 2016
+
+378:F_PRGM_2_ADDR  = [ABB18..8]:012xx;  
+379:F_PRGM_2.J = F_PRGM_2_ADDR & (!WE_DEB);  /* Example w debounced WE & RE alternate qualifier */
+380:F_PRGM_2.K = F_PRGM_2_ADDR & (!RE_DEB);
+381:F_PRGM_2.ck = XCLK_A;
+382:F_PRGM_2.ap = (!RESET_AL);
+383:
+384:
+385:/* *********** CONVENTIONS for Asynchronous Mux Outputs ***     */
+386:/* Here I am implementing the Asynchronous Multiplexor          */
+387:/* functionality for the CPLD for TB3IOMB.                      */
+388:/* Address bus inputs are decoded to select one-bit             */
+389:/* chip-select outputs. Outputs are qualified using "1 of N"    */
+390:/* schemes described below, to avoid spurious outputs.          */
+391:/* Note: suffix "_AL" indicates the signal is Active Low"       */
+392:
+393:/* ***** INPUT PINS (already declared above) *********/
+394:/* PIN [20, 19, 17, 16, 14, 13, 12, 10, 9, 8, 6] = [AB18..8]; */
+395:/* PIN 89 = RESET_AL; */
+396:
+397:/* *************** OUTPUT PINS *********************/
+398:PIN 47 =  CS_FPGA_1_AL;
+399:PIN 48 =  CS_FPGA_2_AL;
+400:PIN 67 = CPLD_SPARE_0;
+401:PIN 68 = CPLD_SPARE_1;
+402:PIN 69 = CPLD_SPARE_2;
+403:PIN 71 = CPLD_SPARE_3;
+404:
+405:/* Following QUALIFIERS are used to limit when individual Async Mux Outputs are active */
+406:/* I have experimented with 3 qualifiers, as described below, and in actual testing    */
+407:/* both QUALIFIER_01, narrowest, and QUALIFIER_03, widest -- both appeared to work    */
+408:/* just fine as chip select for the FPGA on TB3IOMA, so it probably doesn't matter.    */
+409:/* QUALIFIER_03 may cause a tiny bit of false triggerring as it may be active before  */
+410:/* the address bus has settled, in other words you may get pulsed for the address of  */
+411:/* interest, then also a short (bogus) pulse as the address bus starts to change.     */
+412:
+413:NODE QUALIFIER_01; /* -- narrowest -- */
+414:/* Goes active with WE_BUF or RE_BUF somewhat later than WE_AL or RE_AL */
+415:/* then turns off with WE_AL or RE_AL, somewhat before WE_BUF or RE_BUF */
+416:/* also turns off with RESET, and stays off becaus WE_BUF and RE_BUF latch inactive on RESET */
+417:QUALIFIER_01 = ((((!WE_BUF) & (!WE_AL)) # ((!RE_BUF) & (!RE_AL))) & RESET_AL);
+418:
+419:NODE QUALIFIER_02; /* -- in-the-middle -- */
+420:/* Uses actual inputs WE_AL and RE_AL rather than buffered versions */
+421:/* so it gives a little wider output pulse. */
+422:QUALIFIER_02 = ((!WE_AL) # (!WE_AL) & RESET_AL);
+423:
+424:NODE QUALIFIER_03; /* -- widest -- */
+425:/* CXS_AL rather than RE or WE so it gives widest output pulse. */
+426:/* Remember that CXS_AL is asserted during all 3 phases of the external bus cycle - Lead, Active, and Trail.  */
+427:/* WE and RE are asserted only in the Active phase of the external bus cycle. */
+428:QUALIFIER_03 = ((!CXS_AL) & RESET_AL);
+429:
+430:
+431:
+
+LISTING FOR LOGIC DESCRIPTION FILE: ATF1504_JK_N_MUX_110.pld         Page 9
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jul 11 11:21:19 2016
+
+432:/* CS_FPGA_1_AL */
+433:/* On ~Reset -> HI */
+434:/* LOW on AB8-18 = 0x01,xxxx or           */
+435:/*     DSP Addr  = 0x09,xxxx or           */
+436:CS_FPGA_1_AL = !(([AB18..8]:1xxxx)  & QUALIFIER_01);
+437:
+438:/* CS_FPGA_2_AL */
+439:/* On ~Reset -> HI */
+440:/* LOW on AB8-18 = 0x02,xxxx or           */
+441:/*     DSP Addr  = 0x0A,xxxx or           */
+442:CS_FPGA_2_AL = !(([AB18..8]:2xxxx) & QUALIFIER_01);
+443:
+444:/* CPLD_SPARE_0 */
+445:/* On ~Reset -> HI */
+446:/* LOW on AB8-18 = 0x03,xxxx or           */
+447:/*     DSP Addr  = 0x0B,xxxx or           */
+448:CPLD_SPARE_0 = !(([AB18..8]:3xxxx)  & QUALIFIER_02);
+449:
+450:/* CPLD_SPARE_1 */
+451:/* On ~Reset -> HI */
+452:/* LOW on AB8-18 = 0x03,xxxx or           */
+453:/*     DSP Addr  = 0x0B,xxxx or           */
+454:CPLD_SPARE_1 = !(([AB18..8]:3xxxx)  & QUALIFIER_03);
+455:
+456:/* CPLD_SPARE_2 */
+457:/* On ~Reset -> LOW */
+458:/* HI on AB8-18 = 0x03,xxxx or           */
+459:/*     DSP Addr = 0x0B,xxxx or           */
+460:CPLD_SPARE_2 = (([AB18..8]:3xxxx)  & QUALIFIER_02);
+461:
+462:/* CPLD_SPARE_3 */
+463:/* On ~Reset -> LOW */
+464:/* HI on AB8-18 = 0x03,xxxx or           */
+465:/*     DSP Addr = 0x0B,xxxx or           */
+466:CPLD_SPARE_3 = (([AB18..8]:3xxxx)  & QUALIFIER_03);
+467:
+468:
+469:/* ***** Internal nodes strobed at CPLD_TP_0,1,2,3 addresses   ***** */
+470:/* ***** Strobes are xor'ed with whatever test signal is mapped **** */
+471:/* ***** to test point pin.  Sole purpose is so that when you ****** */
+472:/* ***** are using RS232 commands to test the CPLD, you will see *** */
+473:/* ***** strobes on the test points, no matter what else you have ** */
+474:/* ***** mapped onto the pin.                                   **** */
+475:
+476:NODE CPLD_TP_0_ADDR_AM; /* "AM" for async mux */
+477:NODE CPLD_TP_1_ADDR_AM; 
+478:NODE CPLD_TP_2_ADDR_AM; 
+479:NODE CPLD_TP_3_ADDR_AM; 
+480:
+481:/* - Asynchronous Mux - - - */
+482:/* - Activated by Address Bus  - - - - - */
+483:/*   PIN 52 = CPLD_TP_0                        */
+484:/*   Ext Addr: 0x00,0Cxx                       */
+485:/*   Dsp Addr: 0x08,0Cxx                       */
+
+LISTING FOR LOGIC DESCRIPTION FILE: ATF1504_JK_N_MUX_110.pld         Page 10
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Mon Jul 11 11:21:19 2016
+
+486:/*   Normally Low, Pulses Hi                   */
+487:CPLD_TP_0_ADDR_AM     = (([ABB18..8]:00Cxx) & QUALIFIER_01);
+488:/* CPLD_TP_0 = CPLD_TP_0_ADDR_AM; */
+489:
+490:/* - Asynchronous Mux - - - */
+491:/* - Activated by Address Bus  - - - - - */
+492:/*   PIN 54 = CPLD_TP_1                        */
+493:/*   Ext Addr: 0x00,0Dxx                       */
+494:/*   Dsp Addr: 0x08,0Dxx                       */
+495:/*   Normally Low, Pulses Hi                   */
+496:CPLD_TP_1_ADDR_AM     = (([ABB18..8]:00Cxx) & QUALIFIER_01);
+497:/* CPLD_TP_1 = CPLD_TP_1_ADDR_AM; */
+498:
+499:/* - Asynchronous Mux - - - */
+500:/* - Activated by Address Bus  - - - - - */
+501:/*   PIN 55 = CPLD_TP_2                        */
+502:/*   Ext Addr: 0x00,0Exx                       */
+503:/*   Dsp Addr: 0x08,0Exx                       */
+504:/*   Normally Low, Pulses Hi                   */
+505:CPLD_TP_2_ADDR_AM     = (([ABB18..8]:00Cxx) & QUALIFIER_01);
+506:/* CPLD_TP_2 = CPLD_TP_2_ADDR_AM; */
+507:
+508:/* - Asynchronous Mux - - - */
+509:/* - Activated by Address Bus  - - - - - */
+510:/*   PIN 57 = CPLD_TP_3                        */
+511:/*   Ext Addr: 0x00,0Fxx                       */
+512:/*   Dsp Addr: 0x08,0Fxx                       */
+513:/*   Normally Low, Pulses Hi                   */
+514:CPLD_TP_3_ADDR_AM     = (([ABB18..8]:00Cxx) & QUALIFIER_01);
+515:/* CPLD_TP_3 = CPLD_TP_3_ADDR_AM; */
+516:
+517:
+518:/* ***** Here test points may be assigned to other diagnostics   ***** */
+519:
+520:CPLD_TP_0 = (FPGA1_RESET $ CPLD_TP_0_ADDR_AM); /* "$" is exclusive OR */
+521:CPLD_TP_1 = (FPGA2_RESET $ CPLD_TP_1_ADDR_AM);
+522:CPLD_TP_2 = (CS_FPGA_1_AL $ CPLD_TP_2_ADDR_AM);
+523:CPLD_TP_3 = (CS_FPGA_2_AL $ CPLD_TP_3_ADDR_AM);
+524:
+525:
+526:
+527:
+528:
+
+
+

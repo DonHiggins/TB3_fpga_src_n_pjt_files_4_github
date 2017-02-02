@@ -1,0 +1,790 @@
+Atmel ATF1504AS Fitter Version 1.8.7.8 ,running Mon Jul 11 11:21:20 2016
+
+
+fit1504 T:\ATMEL_WINCUPL_PROJ\ATF1504_JK_N_MUX_110\ATF1504_JK_N_MUX_110.tt2 -CUPL -dev P1504T100 -JTAG ON
+
+
+****** Initial fitting strategy and property ******
+ Pla_in_file = ATF1504_JK_N_MUX_110.tt2
+ Pla_out_file = ATF1504_JK_N_MUX_110.tt3
+ Jedec_file = ATF1504_JK_N_MUX_110.jed
+ Vector_file = ATF1504_JK_N_MUX_110.tmv
+ verilog_file = ATF1504_JK_N_MUX_110.vt
+ Time_file = 
+ Log_file = ATF1504_JK_N_MUX_110.fit
+ err_file = 
+ Device_name = TQFP100
+ Module_name = 
+ Package_type = TQFP
+ Preassign_file = 
+ Property_file = 
+ Sleep_mode = 
+ Preassignment = 
+ Security_mode = OFF
+ Pin_keep_mode = ON
+ Dedicated_input_clock = 
+ Dedicated_input_reset = 
+ Dedicated_input_oe = 
+ supporter = CUPL
+ optimize = ON
+ Soft_buffer = 
+ Xor_synthesis = OFF
+ Foldback_logic =  on
+ Expander = 
+ Cascade_logic = OFF
+ Dedicated_input = 
+ Output_fast = OFF
+ *******************************
+ Power down pin 1 = OFF
+ Power down pin 2 = OFF
+ power_reset = OFF
+ JTAG = ON
+ TDI pullup = OFF
+ TMS pullup = OFF
+ MC_power = OFF
+ Open_collector = OFF
+ ITD0 = ON
+ ITD1 = ON
+ ITD2 = ON
+ Fast_inlatch = off
+ *******************************
+---------------------------------------------------------
+ Fitter_Pass 1, Preassign = KEEP, LOGIC_DOUBLING : OFF 
+ ... 
+## ERROR : Bad user pin assignement : 111
+ ## ERROR : Bad user pin assignement 
+---------------------------------------------------------
+ Fitter_Pass 2, Preassign = KEEP, NODE ASSIGN : OFF 
+ ... 
+
+Performing global Output Enable pin assignments ...
+
+Performing global pin assignments ...
+--------------------------------------
+
+
+
+Final global control pins assignment (if applicable)...
+-------------------------------------------------------
+XCLK_A assigned to pin  87
+RESET_AL assigned to pin  89
+
+
+
+Performing input pin pre-assignments ...
+------------------------------------
+XCLK_A assigned to pin  87
+RESET_AL assigned to pin  89
+
+Attempt to place floating signals ...
+------------------------------------
+AB14 is placed at pin 14 (MC 1)
+ABB8 is placed at feedback node 601 (MC 1)
+AB13 is placed at pin 13 (MC 2)
+ABB10 is placed at feedback node 602 (MC 2)
+AB12 is placed at pin 12 (MC 3)
+ABB9 is placed at feedback node 603 (MC 3)
+AB11 is placed at pin 10 (MC 4)
+RE_BUF is placed at feedback node 604 (MC 4)
+AB10 is placed at pin 9 (MC 5)
+WE_BUF is placed at feedback node 605 (MC 5)
+AB9 is placed at pin 8 (MC 6)
+WE_BUF2 is placed at feedback node 606 (MC 6)
+AB8 is placed at pin 6 (MC 7)
+QUALIFIER_01 is placed at feedback node 607 (MC 7)
+TDI is placed at pin 4 (MC 8)
+RE_BUF2 is placed at feedback node 608 (MC 8)
+ABB14 is placed at feedback node 613 (MC 13)
+ABB12 is placed at feedback node 614 (MC 14)
+ABB11 is placed at feedback node 615 (MC 15)
+F_PRGM_2 is placed at pin 92 (MC 16)
+XXL_225 is placed at foldback expander node 316 (MC 16)
+MISO_ENA is placed at pin 33 (MC 20)
+FPGA2_RESET is placed at pin 32 (MC 21)
+FPGA1_RESET is placed at pin 31 (MC 22)
+EE_I2C_CLK_ENA is placed at pin 30 (MC 23)
+WP_I2C_EEPROM is placed at pin 29 (MC 24)
+TX2_BUF_ENA is placed at pin 23 (MC 26)
+XXL_231 is placed at foldback expander node 326 (MC 26)
+RS_232 is placed at pin 21 (MC 27)
+XXL_229 is placed at foldback expander node 327 (MC 27)
+AB18 is placed at pin 20 (MC 28)
+XXL_227 is placed at foldback expander node 328 (MC 28)
+AB17 is placed at pin 19 (MC 29)
+ABB17 is placed at feedback node 629 (MC 29)
+XXL_221 is placed at foldback expander node 329 (MC 29)
+AB16 is placed at pin 17 (MC 30)
+ABB16 is placed at feedback node 630 (MC 30)
+XXL_223 is placed at foldback expander node 330 (MC 30)
+AB15 is placed at pin 16 (MC 31)
+ABB15 is placed at feedback node 631 (MC 31)
+XXL_219 is placed at foldback expander node 331 (MC 31)
+TMS is placed at pin 15 (MC 32)
+ABB13 is placed at feedback node 632 (MC 32)
+XXL_212 is placed at foldback expander node 332 (MC 32)
+WP_FLASH_2 is placed at pin 42 (MC 35)
+CS_FLASH_1 is placed at pin 44 (MC 36)
+CS_FLASH_2 is placed at pin 45 (MC 37)
+WP_FLASH_1 is placed at pin 46 (MC 38)
+CS_FPGA_1_AL is placed at pin 47 (MC 39)
+CS_FPGA_2_AL is placed at pin 48 (MC 40)
+CPLD_TP_0 is placed at pin 52 (MC 41)
+XXL_235 is placed at foldback expander node 341 (MC 41)
+CPLD_TP_1 is placed at pin 54 (MC 42)
+XXL_233 is placed at foldback expander node 342 (MC 42)
+CPLD_TP_2 is placed at pin 56 (MC 43)
+XXL_217 is placed at foldback expander node 343 (MC 43)
+CPLD_TP_3 is placed at pin 57 (MC 44)
+XXL_215 is placed at foldback expander node 344 (MC 44)
+CPLD_TP_2_ADDR_AM is placed at foldback expander node 345 (MC 45)
+CPLD_TP_3_ADDR_AM is placed at foldback expander node 346 (MC 46)
+CPLD_TP_1_ADDR_AM is placed at foldback expander node 347 (MC 47)
+TCK is placed at pin 62 (MC 48)
+CPLD_TP_0_ADDR_AM is placed at foldback expander node 348 (MC 48)
+CPLD_LED_1 is placed at pin 64 (MC 50)
+CPLD_SPARE_0 is placed at pin 67 (MC 52)
+CPLD_SPARE_1 is placed at pin 68 (MC 53)
+CPLD_SPARE_2 is placed at pin 69 (MC 54)
+CPLD_SPARE_3 is placed at pin 71 (MC 55)
+TDO is placed at pin 73 (MC 56)
+CPLD_LED_0 is placed at pin 76 (MC 58)
+CXS_AL is placed at pin 80 (MC 60)
+RE_AL is placed at pin 83 (MC 62)
+WE_AL is placed at pin 84 (MC 63)
+ABB18 is placed at feedback node 663 (MC 63)
+XXL_239 is placed at foldback expander node 363 (MC 63)
+XXL_237 is placed at foldback expander node 364 (MC 64)
+
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                    C                        
+                                                                    P                        
+                                    F     R                         L                        
+                                    _     E                         D                        
+                                    P     S   X             C       _                        
+                                    R     E   C     W R     X       L                        
+                                    G     T   L     E E     S       E                        
+                              G     M V   _   K G   _ _ V   _       D                        
+                              N     _ C   A   _ N   A A C   A   N N _                        
+                              D     2 C   L   A D   L L C   L   C C 0                        
+                  ------------------------------------------------------                     
+                 / 100  98  96  94  92  90  88  86  84  82  80  78  76  \                   
+                /     99  97  95  93  91  89  87  85  83  81  79  77     \                  
+            NC | 1                                                     75 |                  
+            NC | 2                                                     74 | GND              
+           VCC | 3                                                     73 | TDO              
+           TDI | 4                                                     72 | NC               
+            NC | 5                                                     71 | CPLD_SPARE_3     
+           AB8 | 6                                                     70 | NC               
+            NC | 7                                                     69 | CPLD_SPARE_2     
+           AB9 | 8                                                     68 | CPLD_SPARE_1     
+          AB10 | 9                                                     67 | CPLD_SPARE_0     
+          AB11 | 10                                                    66 | VCC              
+           GND | 11                                                    65 |                  
+          AB12 | 12                     ATF1504                        64 | CPLD_LED_1       
+          AB13 | 13                  100-Lead TQFP                     63 |                  
+          AB14 | 14                                                    62 | TCK              
+           TMS | 15                                                    61 |                  
+          AB15 | 16                                                    60 |                  
+          AB16 | 17                                                    59 | GND              
+           VCC | 18                                                    58 |                  
+          AB17 | 19                                                    57 | CPLD_TP_3        
+          AB18 | 20                                                    56 | CPLD_TP_2        
+        RS_232 | 21                                                    55 | NC               
+            NC | 22                                                    54 | CPLD_TP_1        
+   TX2_BUF_ENA | 23                                                    53 | NC               
+            NC | 24                                                    52 | CPLD_TP_0        
+               | 25                                                    51 | VCC              
+                \     27  29  31  33  35  37  39  41  43  45   47  49    /                   
+                 \  26  28  30  32  34  36  38  40  42  44  46  48   50 /                    
+                  ------------------------------------------------------                     
+                    G N N W E F F M V       G V     W G C C W C C  N N                       
+                    N C C P E P P I C       N C     P N S S P S S  C C                       
+                    D     _ _ G G S C       D C     _ D _ _ _ _ _                            
+                          I I A A O                 F   F F F F F                            
+                          2 2 1 2 _                 L   L L L P P                            
+                          C C _ _ E                 A   A A A G G                            
+                          _ _ R R N                 S   S S S A A                            
+                          E C E E A                 H   H H H _ _                            
+                          E L S S                   _   _ _ _ 1 2                            
+                          P K E E                   2   1 2 1 _ _                            
+                          R _ T T                             A A                            
+                          O E                                 L L                            
+                          M N                                                                
+
+
+
+VCC = Supply Voltage pin which must be connected to (5.0V or 3.0V)
+
+GND = GND pin which must be connected to ground
+
+TMS,TDI,TDO,TDI = JTAG pins which must reserved for the JTAG interface
+
+NC = Unused I/O pins which must be unconnected on the board
+
+Universal-Interconnect-Multiplexer assignments
+------------------------------------------------
+FanIn assignment for block A [25]
+{
+ABB10,AB14,ABB13,ABB9,AB12,ABB8,AB11,ABB17,ABB16,ABB15,AB10,ABB14,AB9,AB8,ABB12,ABB11,ABB18,
+F_PRGM_2,
+RE_BUF,RE_BUF2,RE_AL,RESET_AL,
+WE_BUF2,WE_BUF,WE_AL,
+}
+Multiplexer assignment for block A
+ABB10			(MC2	FB)  : MUX 0		Ref (A2fb)
+AB14			(MC25	P)   : MUX 1		Ref (A1p)
+ABB13			(MC15	FB)  : MUX 5		Ref (B32fb)
+ABB9			(MC3	FB)  : MUX 6		Ref (A3fb)
+AB12			(MC24	P)   : MUX 7		Ref (A3p)
+ABB8			(MC1	FB)  : MUX 8		Ref (A1fb)
+AB11			(MC23	P)   : MUX 9		Ref (A4p)
+ABB17			(MC12	FB)  : MUX 11		Ref (B29fb)
+ABB16			(MC13	FB)  : MUX 15		Ref (B30fb)
+RE_BUF			(MC4	FB)  : MUX 18		Ref (A4fb)
+ABB15			(MC14	FB)  : MUX 19		Ref (B31fb)
+WE_BUF2			(MC6	FB)  : MUX 20		Ref (A6fb)
+AB10			(MC21	P)   : MUX 21		Ref (A5p)
+ABB14			(MC8	FB)  : MUX 23		Ref (A13fb)
+RE_BUF2			(MC7	FB)  : MUX 24		Ref (A8fb)
+AB9			(MC20	P)   : MUX 25		Ref (A6p)
+RE_AL			(MC19	P)   : MUX 26		Ref (D62p)
+AB8			(MC22	P)   : MUX 27		Ref (A7p)
+WE_BUF			(MC5	FB)  : MUX 28		Ref (A5fb)
+ABB12			(MC9	FB)  : MUX 29		Ref (A14fb)
+F_PRGM_2		(MC11	P)   : MUX 30		Ref (A16p)
+ABB11			(MC10	FB)  : MUX 31		Ref (A15fb)
+WE_AL			(MC18	P)   : MUX 34		Ref (D63p)
+RESET_AL		(MC17	FB)  : MUX 38		Ref (GCLR)
+ABB18			(MC16	FB)  : MUX 39		Ref (D63fb)
+
+FanIn assignment for block B [25]
+{
+ABB10,ABB9,AB13,AB16,AB15,ABB13,ABB8,ABB17,AB17,ABB16,ABB15,ABB18,ABB14,ABB12,ABB11,
+EE_I2C_CLK_ENA,
+FPGA2_RESET,FPGA1_RESET,
+MISO_ENA,
+RE_BUF,RS_232,RESET_AL,
+TX2_BUF_ENA,
+WP_I2C_EEPROM,WE_BUF,
+}
+Multiplexer assignment for block B
+ABB10			(MC2	FB)  : MUX 0		Ref (A2fb)
+FPGA2_RESET		(MC10	P)   : MUX 1		Ref (B21p)
+ABB9			(MC3	FB)  : MUX 2		Ref (A3fb)
+EE_I2C_CLK_ENA		(MC12	P)   : MUX 3		Ref (B23p)
+AB13			(MC24	P)   : MUX 5		Ref (A2p)
+AB16			(MC22	P)   : MUX 6		Ref (B30p)
+FPGA1_RESET		(MC11	P)   : MUX 7		Ref (B22p)
+AB15			(MC25	P)   : MUX 8		Ref (B31p)
+ABB13			(MC19	FB)  : MUX 9		Ref (B32fb)
+ABB8			(MC1	FB)  : MUX 10		Ref (A1fb)
+ABB17			(MC16	FB)  : MUX 11		Ref (B29fb)
+WP_I2C_EEPROM		(MC13	P)   : MUX 13		Ref (B24p)
+AB17			(MC23	P)   : MUX 14		Ref (B29p)
+ABB16			(MC17	FB)  : MUX 15		Ref (B30fb)
+RE_BUF			(MC4	FB)  : MUX 18		Ref (A4fb)
+ABB15			(MC18	FB)  : MUX 19		Ref (B31fb)
+ABB18			(MC20	FB)  : MUX 21		Ref (D63fb)
+ABB14			(MC6	FB)  : MUX 23		Ref (A13fb)
+TX2_BUF_ENA		(MC14	P)   : MUX 26		Ref (B26p)
+ABB12			(MC7	FB)  : MUX 27		Ref (A14fb)
+RS_232			(MC15	P)   : MUX 28		Ref (B27p)
+WE_BUF			(MC5	FB)  : MUX 30		Ref (A5fb)
+ABB11			(MC8	FB)  : MUX 31		Ref (A15fb)
+RESET_AL		(MC21	FB)  : MUX 32		Ref (GCLR)
+MISO_ENA		(MC9	P)   : MUX 35		Ref (B20p)
+
+FanIn assignment for block C [26]
+{
+ABB10,ABB9,AB16,ABB8,ABB16,ABB15,AB17,ABB13,ABB17,ABB18,AB18,ABB14,ABB12,ABB11,
+CS_FLASH_2,CS_FPGA_1_AL,CS_FPGA_2_AL,CS_FLASH_1,
+FPGA2_RESET,FPGA1_RESET,
+QUALIFIER_01,
+RE_BUF,RESET_AL,
+WP_FLASH_1,WP_FLASH_2,WE_BUF,
+}
+Multiplexer assignment for block C
+ABB10			(MC2	FB)  : MUX 0		Ref (A2fb)
+FPGA2_RESET		(MC10	P)   : MUX 1		Ref (B21p)
+ABB9			(MC3	FB)  : MUX 2		Ref (A3fb)
+CS_FLASH_2		(MC18	P)   : MUX 3		Ref (C37p)
+CS_FPGA_1_AL		(MC20	P)   : MUX 5		Ref (C39p)
+AB16			(MC24	P)   : MUX 6		Ref (B30p)
+FPGA1_RESET		(MC11	P)   : MUX 7		Ref (B22p)
+ABB8			(MC1	FB)  : MUX 8		Ref (A1fb)
+WP_FLASH_1		(MC19	P)   : MUX 9		Ref (C38p)
+ABB16			(MC13	FB)  : MUX 11		Ref (B30fb)
+ABB15			(MC14	FB)  : MUX 13		Ref (B31fb)
+AB17			(MC25	P)   : MUX 14		Ref (B29p)
+CS_FPGA_2_AL		(MC21	P)   : MUX 15		Ref (C40p)
+ABB13			(MC15	FB)  : MUX 17		Ref (B32fb)
+RE_BUF			(MC4	FB)  : MUX 18		Ref (A4fb)
+ABB17			(MC12	FB)  : MUX 19		Ref (B29fb)
+ABB18			(MC22	FB)  : MUX 21		Ref (D63fb)
+AB18			(MC26	P)   : MUX 22		Ref (B28p)
+CS_FLASH_1		(MC17	P)   : MUX 23		Ref (C36p)
+ABB14			(MC7	FB)  : MUX 25		Ref (A13fb)
+QUALIFIER_01		(MC6	FB)  : MUX 26		Ref (A7fb)
+WP_FLASH_2		(MC16	P)   : MUX 27		Ref (C35p)
+WE_BUF			(MC5	FB)  : MUX 28		Ref (A5fb)
+ABB12			(MC8	FB)  : MUX 29		Ref (A14fb)
+ABB11			(MC9	FB)  : MUX 31		Ref (A15fb)
+RESET_AL		(MC23	FB)  : MUX 36		Ref (GCLR)
+
+FanIn assignment for block D [23]
+{
+ABB13,AB16,ABB8,ABB17,AB17,ABB16,ABB9,ABB10,ABB15,ABB12,ABB14,ABB11,ABB18,AB18,
+CXS_AL,CPLD_LED_1,CPLD_LED_0,
+RE_BUF,RE_BUF2,RESET_AL,
+WE_BUF2,WE_BUF,WE_AL,
+}
+Multiplexer assignment for block D
+CXS_AL			(MC23	P)   : MUX 0		Ref (D60p)
+CPLD_LED_1		(MC15	P)   : MUX 1		Ref (D50p)
+RE_BUF			(MC4	FB)  : MUX 4		Ref (A4fb)
+ABB13			(MC14	FB)  : MUX 5		Ref (B32fb)
+AB16			(MC19	P)   : MUX 6		Ref (B30p)
+ABB8			(MC1	FB)  : MUX 8		Ref (A1fb)
+CPLD_LED_0		(MC16	P)   : MUX 10		Ref (D58p)
+ABB17			(MC11	FB)  : MUX 11		Ref (B29fb)
+AB17			(MC20	P)   : MUX 14		Ref (B29p)
+ABB16			(MC12	FB)  : MUX 15		Ref (B30fb)
+ABB9			(MC3	FB)  : MUX 16		Ref (A3fb)
+ABB10			(MC2	FB)  : MUX 18		Ref (A2fb)
+ABB15			(MC13	FB)  : MUX 19		Ref (B31fb)
+WE_BUF2			(MC6	FB)  : MUX 20		Ref (A6fb)
+ABB12			(MC9	FB)  : MUX 21		Ref (A14fb)
+ABB14			(MC8	FB)  : MUX 23		Ref (A13fb)
+RE_BUF2			(MC7	FB)  : MUX 24		Ref (A8fb)
+WE_BUF			(MC5	FB)  : MUX 26		Ref (A5fb)
+ABB11			(MC10	FB)  : MUX 31		Ref (A15fb)
+WE_AL			(MC21	P)   : MUX 34		Ref (D63p)
+ABB18			(MC17	FB)  : MUX 35		Ref (D63fb)
+AB18			(MC22	P)   : MUX 36		Ref (B28p)
+RESET_AL		(MC18	FB)  : MUX 38		Ref (GCLR)
+
+Creating JEDEC file T:\ATMEL_WINCUPL_PROJ\ATF1504_JK_N_MUX_110\ATF1504_JK_N_MUX_110.jed ...
+
+TQFP100 programmed logic:
+-----------------------------------
+ABB9.D = AB9;
+
+ABB8.D = AB8;
+
+ABB10.D = AB10;
+
+ABB12.D = AB12;
+
+ABB11.D = AB11;
+
+ABB14.D = AB14;
+
+ABB13.D = AB13;
+
+ABB15.D = AB15;
+
+ABB17.D = AB17;
+
+ABB16.D = AB16;
+
+ABB18.D = AB18;
+
+QUALIFIER_01 = ((RESET_AL & !WE_AL & !WE_BUF.Q)
+	# (RESET_AL & !RE_AL & !RE_BUF.Q));
+
+RE_BUF.D = RE_AL;
+
+RE_BUF2.D = RE_BUF.Q;
+
+WE_BUF.D = WE_AL;
+
+WE_BUF2.D = WE_BUF.Q;
+
+!CPLD_SPARE_0 = (AB16 & AB17 & !AB18 & !WE_AL);
+
+CPLD_SPARE_2 = (AB16 & AB17 & !AB18 & !WE_AL);
+
+!CPLD_SPARE_1 = (AB16 & AB17 & !AB18 & !CXS_AL & RESET_AL);
+
+CPLD_SPARE_3 = (AB16 & AB17 & !AB18 & !CXS_AL & RESET_AL);
+
+!CPLD_TP_0_ADDR_AM = (!ABB8.Q & !ABB9.Q & ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & QUALIFIER_01);
+
+!CPLD_TP_1_ADDR_AM = (!ABB8.Q & !ABB9.Q & ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & QUALIFIER_01);
+
+!CPLD_TP_3_ADDR_AM = (!ABB8.Q & !ABB9.Q & ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & QUALIFIER_01);
+
+!CPLD_TP_2_ADDR_AM = (!ABB8.Q & !ABB9.Q & ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & QUALIFIER_01);
+
+!CS_FPGA_2_AL = (!AB16 & AB17 & !AB18 & QUALIFIER_01);
+
+!CS_FPGA_1_AL = (AB16 & !AB17 & !AB18 & QUALIFIER_01);
+
+CPLD_TP_0 = ((FPGA1_RESET.Q & CPLD_TP_0_ADDR_AM)
+	# (!FPGA1_RESET.Q & !ABB8.Q & !ABB9.Q & ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & QUALIFIER_01));
+
+CPLD_TP_1 = ((FPGA2_RESET.Q & CPLD_TP_1_ADDR_AM)
+	# (!FPGA2_RESET.Q & !ABB8.Q & !ABB9.Q & ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & QUALIFIER_01));
+
+CPLD_TP_2 = ((CS_FPGA_1_AL & CPLD_TP_2_ADDR_AM)
+	# (!CS_FPGA_1_AL & !ABB8.Q & !ABB9.Q & ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & QUALIFIER_01));
+
+CPLD_TP_3 = ((CS_FPGA_2_AL & CPLD_TP_3_ADDR_AM)
+	# (!CS_FPGA_2_AL & !ABB8.Q & !ABB9.Q & ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & QUALIFIER_01));
+
+!XXL_212 = (!RE_BUF.Q & ABB8.Q & ABB9.Q & !ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q);
+
+!XXL_215 = (!RE_BUF.Q & !ABB8.Q & !ABB9.Q & !ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q);
+
+!XXL_217 = (!RE_BUF.Q & ABB8.Q & ABB9.Q & !ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q);
+
+!XXL_219 = (!RE_BUF.Q & !ABB8.Q & ABB9.Q & !ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q);
+
+!XXL_223 = (!RE_BUF.Q & ABB8.Q & ABB9.Q & ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q);
+
+!XXL_221 = (!RE_BUF.Q & ABB8.Q & !ABB9.Q & !ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q);
+
+!XXL_225 = (!ABB8.Q & ABB9.Q & !ABB10.Q & !ABB11.Q & ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & !RE_BUF.Q & !RE_BUF2.Q);
+
+!XXL_227 = (!RE_BUF.Q & !ABB8.Q & ABB9.Q & ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q);
+
+!XXL_229 = (!RE_BUF.Q & ABB8.Q & !ABB9.Q & ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q);
+
+!XXL_233 = (!RE_BUF.Q & !ABB8.Q & ABB9.Q & !ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q);
+
+!XXL_231 = (!RE_BUF.Q & !ABB8.Q & !ABB9.Q & ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q);
+
+!XXL_235 = (!RE_BUF.Q & ABB8.Q & !ABB9.Q & !ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q);
+
+!XXL_237 = (ABB8.Q & !ABB9.Q & !ABB10.Q & !ABB11.Q & ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & !RE_BUF.Q & !RE_BUF2.Q);
+
+!XXL_239 = (!ABB8.Q & !ABB9.Q & !ABB10.Q & !ABB11.Q & ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & !RE_BUF.Q & !RE_BUF2.Q);
+
+WP_I2C_EEPROM.D = ((WP_I2C_EEPROM.Q & XXL_212)
+	# (!WP_I2C_EEPROM.Q & !WE_BUF.Q & ABB8.Q & ABB9.Q & !ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q));
+
+WP_FLASH_2.D = ((WP_FLASH_2.Q & XXL_215)
+	# (!WP_FLASH_2.Q & !WE_BUF.Q & !ABB8.Q & !ABB9.Q & !ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q));
+
+WP_FLASH_1.D = ((WP_FLASH_1.Q & XXL_217)
+	# (!WP_FLASH_1.Q & !WE_BUF.Q & ABB8.Q & ABB9.Q & !ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q));
+
+TX2_BUF_ENA.D = ((TX2_BUF_ENA.Q & XXL_219)
+	# (!TX2_BUF_ENA.Q & !WE_BUF.Q & !ABB8.Q & ABB9.Q & !ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q));
+
+RS_232.D = ((RS_232.Q & XXL_221)
+	# (!RS_232.Q & !WE_BUF.Q & ABB8.Q & !ABB9.Q & !ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q));
+
+MISO_ENA.D = ((MISO_ENA.Q & XXL_223)
+	# (!MISO_ENA.Q & !WE_BUF.Q & ABB8.Q & ABB9.Q & ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q));
+
+F_PRGM_2.D = ((F_PRGM_2.Q & XXL_225)
+	# (!F_PRGM_2.Q & !ABB8.Q & ABB9.Q & !ABB10.Q & !ABB11.Q & ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & !WE_BUF.Q & !WE_BUF2.Q));
+
+FPGA2_RESET.D = ((FPGA2_RESET.Q & XXL_227)
+	# (!FPGA2_RESET.Q & !WE_BUF.Q & !ABB8.Q & ABB9.Q & ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q));
+
+FPGA1_RESET.D = ((FPGA1_RESET.Q & XXL_229)
+	# (!FPGA1_RESET.Q & !WE_BUF.Q & ABB8.Q & !ABB9.Q & ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q));
+
+EE_I2C_CLK_ENA.D = ((EE_I2C_CLK_ENA.Q & XXL_231)
+	# (!EE_I2C_CLK_ENA.Q & !WE_BUF.Q & !ABB8.Q & !ABB9.Q & ABB10.Q & !ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q));
+
+CS_FLASH_2.D = ((CS_FLASH_2.Q & XXL_233)
+	# (!CS_FLASH_2.Q & !WE_BUF.Q & !ABB8.Q & ABB9.Q & !ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q));
+
+CS_FLASH_1.D = ((CS_FLASH_1.Q & XXL_235)
+	# (!CS_FLASH_1.Q & !WE_BUF.Q & ABB8.Q & !ABB9.Q & !ABB10.Q & ABB11.Q & !ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q));
+
+CPLD_LED_1.D = ((CPLD_LED_1.Q & XXL_237)
+	# (!CPLD_LED_1.Q & ABB8.Q & !ABB9.Q & !ABB10.Q & !ABB11.Q & ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & !WE_BUF.Q & !WE_BUF2.Q));
+
+CPLD_LED_0.D = ((CPLD_LED_0.Q & XXL_239)
+	# (!CPLD_LED_0.Q & !ABB8.Q & !ABB9.Q & !ABB10.Q & !ABB11.Q & ABB12.Q & !ABB13.Q & !ABB14.Q & !ABB15.Q & !ABB16.Q & !ABB17.Q & !ABB18.Q & !WE_BUF.Q & !WE_BUF2.Q));
+
+ABB9.C = XCLK_A;
+
+ABB8.C = XCLK_A;
+
+ABB10.C = XCLK_A;
+
+ABB12.C = XCLK_A;
+
+ABB11.C = XCLK_A;
+
+ABB14.C = XCLK_A;
+
+ABB13.C = XCLK_A;
+
+ABB15.C = XCLK_A;
+
+ABB17.C = XCLK_A;
+
+ABB16.C = XCLK_A;
+
+ABB18.C = XCLK_A;
+
+RE_BUF.C = XCLK_A;
+
+RE_BUF.AP = !RESET_AL;
+
+RE_BUF2.C = XCLK_A;
+
+RE_BUF2.AP = !RESET_AL;
+
+WE_BUF.C = XCLK_A;
+
+WE_BUF.AP = !RESET_AL;
+
+WE_BUF2.C = XCLK_A;
+
+WE_BUF2.AP = !RESET_AL;
+
+WP_I2C_EEPROM.C = XCLK_A;
+
+WP_I2C_EEPROM.AR = !RESET_AL;
+
+WP_FLASH_2.C = XCLK_A;
+
+WP_FLASH_2.AR = !RESET_AL;
+
+WP_FLASH_1.C = XCLK_A;
+
+WP_FLASH_1.AR = !RESET_AL;
+
+TX2_BUF_ENA.C = XCLK_A;
+
+TX2_BUF_ENA.AP = !RESET_AL;
+
+RS_232.C = XCLK_A;
+
+RS_232.AR = !RESET_AL;
+
+MISO_ENA.C = XCLK_A;
+
+MISO_ENA.AP = !RESET_AL;
+
+F_PRGM_2.C = XCLK_A;
+
+F_PRGM_2.AP = !RESET_AL;
+
+FPGA2_RESET.C = XCLK_A;
+
+FPGA2_RESET.AR = !RESET_AL;
+
+FPGA1_RESET.C = XCLK_A;
+
+FPGA1_RESET.AR = !RESET_AL;
+
+EE_I2C_CLK_ENA.C = XCLK_A;
+
+EE_I2C_CLK_ENA.AP = !RESET_AL;
+
+CS_FLASH_2.C = XCLK_A;
+
+CS_FLASH_2.AP = !RESET_AL;
+
+CS_FLASH_1.C = XCLK_A;
+
+CS_FLASH_1.AP = !RESET_AL;
+
+CPLD_LED_1.C = XCLK_A;
+
+CPLD_LED_1.AP = !RESET_AL;
+
+CPLD_LED_0.C = XCLK_A;
+
+CPLD_LED_0.AR = !RESET_AL;
+
+
+TQFP100 Pin/Node Placement:
+------------------------------------
+Pin 4  = TDI; /* MC 8 */
+Pin 6  = AB8; /* MC 7 */
+Pin 8  = AB9; /* MC 6 */
+Pin 9  = AB10; /* MC 5 */
+Pin 10 = AB11; /* MC  4 */
+Pin 12 = AB12; /* MC  3 */
+Pin 13 = AB13; /* MC  2 */
+Pin 14 = AB14; /* MC  1 */
+Pin 15 = TMS; /* MC 32 */ 
+Pin 16 = AB15; /* MC 31 */ 
+Pin 17 = AB16; /* MC 30 */ 
+Pin 19 = AB17; /* MC 29 */ 
+Pin 20 = AB18; /* MC 28 */ 
+Pin 21 = RS_232; /* MC 27 */ 
+Pin 23 = TX2_BUF_ENA; /* MC 26 */ 
+Pin 29 = WP_I2C_EEPROM; /* MC 24 */ 
+Pin 30 = EE_I2C_CLK_ENA; /* MC 23 */ 
+Pin 31 = FPGA1_RESET; /* MC 22 */ 
+Pin 32 = FPGA2_RESET; /* MC 21 */ 
+Pin 33 = MISO_ENA; /* MC 20 */ 
+Pin 42 = WP_FLASH_2; /* MC 35 */ 
+Pin 44 = CS_FLASH_1; /* MC 36 */ 
+Pin 45 = CS_FLASH_2; /* MC 37 */ 
+Pin 46 = WP_FLASH_1; /* MC 38 */ 
+Pin 47 = CS_FPGA_1_AL; /* MC 39 */ 
+Pin 48 = CS_FPGA_2_AL; /* MC 40 */ 
+Pin 52 = CPLD_TP_0; /* MC 41 */ 
+Pin 54 = CPLD_TP_1; /* MC 42 */ 
+Pin 56 = CPLD_TP_2; /* MC 43 */ 
+Pin 57 = CPLD_TP_3; /* MC 44 */ 
+Pin 62 = TCK; /* MC 48 */ 
+Pin 64 = CPLD_LED_1; /* MC 50 */ 
+Pin 67 = CPLD_SPARE_0; /* MC 52 */ 
+Pin 68 = CPLD_SPARE_1; /* MC 53 */ 
+Pin 69 = CPLD_SPARE_2; /* MC 54 */ 
+Pin 71 = CPLD_SPARE_3; /* MC 55 */ 
+Pin 73 = TDO; /* MC 56 */ 
+Pin 76 = CPLD_LED_0; /* MC 58 */ 
+Pin 80 = CXS_AL; /* MC 60 */ 
+Pin 83 = RE_AL; /* MC 62 */ 
+Pin 84 = WE_AL; /* MC 63 */ 
+Pin 87 = XCLK_A;
+Pin 89 = RESET_AL;
+Pin 92 = F_PRGM_2; /* MC 16 */ 
+PINNODE 316 = XXL_225; /* MC 16 Foldback */
+PINNODE 326 = XXL_231; /* MC 26 Foldback */
+PINNODE 327 = XXL_229; /* MC 27 Foldback */
+PINNODE 328 = XXL_227; /* MC 28 Foldback */
+PINNODE 329 = XXL_221; /* MC 29 Foldback */
+PINNODE 330 = XXL_223; /* MC 30 Foldback */
+PINNODE 331 = XXL_219; /* MC 31 Foldback */
+PINNODE 332 = XXL_212; /* MC 32 Foldback */
+PINNODE 341 = XXL_235; /* MC 41 Foldback */
+PINNODE 342 = XXL_233; /* MC 42 Foldback */
+PINNODE 343 = XXL_217; /* MC 43 Foldback */
+PINNODE 344 = XXL_215; /* MC 44 Foldback */
+PINNODE 345 = CPLD_TP_2_ADDR_AM; /* MC 45 Foldback */
+PINNODE 346 = CPLD_TP_3_ADDR_AM; /* MC 46 Foldback */
+PINNODE 347 = CPLD_TP_1_ADDR_AM; /* MC 47 Foldback */
+PINNODE 348 = CPLD_TP_0_ADDR_AM; /* MC 48 Foldback */
+PINNODE 363 = XXL_239; /* MC 63 Foldback */
+PINNODE 364 = XXL_237; /* MC 64 Foldback */
+PINNODE 601 = ABB8; /* MC 1 Feedback */
+PINNODE 602 = ABB10; /* MC 2 Feedback */
+PINNODE 603 = ABB9; /* MC 3 Feedback */
+PINNODE 604 = RE_BUF; /* MC 4 Feedback */
+PINNODE 605 = WE_BUF; /* MC 5 Feedback */
+PINNODE 606 = WE_BUF2; /* MC 6 Feedback */
+PINNODE 607 = QUALIFIER_01; /* MC 7 Feedback */
+PINNODE 608 = RE_BUF2; /* MC 8 Feedback */
+PINNODE 613 = ABB14; /* MC 13 Feedback */
+PINNODE 614 = ABB12; /* MC 14 Feedback */
+PINNODE 615 = ABB11; /* MC 15 Feedback */
+PINNODE 629 = ABB17; /* MC 29 Feedback */
+PINNODE 630 = ABB16; /* MC 30 Feedback */
+PINNODE 631 = ABB15; /* MC 31 Feedback */
+PINNODE 632 = ABB13; /* MC 32 Feedback */
+PINNODE 663 = ABB18; /* MC 63 Feedback */
+
+** Resource Usage **
+
+
+DCERP Field = Summary of Allocations.
+|||||
+|||||_Preset [p,-]       ==  p = PT preset, - No Preset.
+||||
+||||__Reset [g,r,-]      ==  g= Global AR, r = PT reset, - No reset.
+|||
+|||___Clock Enable [e,-] ==  e = Product Term, - always enabled, - none.
+||
+||____Clock [c,g,-],     ==  c = Product term, g = Global term, - No Clock.
+|
+|_____Type [C,D,L,T],    ==  Register type C= combin, D=dff, L=latch, T=tff.
+
+For input only = INPUT.
+
+MCell Pin# Oe   PinDrive       DCERP  FBDrive      DCERP  Foldback          CascadeOut     TotPT output_slew
+MC1   14   --   AB14           INPUT  ABB8         Dg---  --                --             1     slow
+MC2   13   --   AB13           INPUT  ABB10        Dg---  --                --             1     slow
+MC3   12   --   AB12           INPUT  ABB9         Dg---  --                --             1     slow
+MC4   10   --   AB11           INPUT  RE_BUF       Dg--p  --                --             2     slow
+MC5   9    --   AB10           INPUT  WE_BUF       Dg--p  --                --             2     slow
+MC6   8    --   AB9            INPUT  WE_BUF2      Dg--p  --                --             2     slow
+MC7   6    --   AB8            INPUT  QUALIFIER_01 C----  --                --             2     slow
+MC8   4    --   TDI            INPUT  RE_BUF2      Dg--p  --                --             2     slow
+MC9   100       --                    --                  --                --             0     slow
+MC10  99        --                    --                  --                --             0     slow
+MC11  98        --                    --                  --                --             0     slow
+MC12  97        --                    --                  --                --             0     slow
+MC13  96        --                    ABB14        Dg---  --                --             1     slow
+MC14  94        --                    ABB12        Dg---  --                --             1     slow
+MC15  93        --                    ABB11        Dg---  --                --             1     slow
+MC16  92   on   F_PRGM_2       Dg--p  --                  XXL_225           --             4     slow
+MC17  37        --                    --                  --                --             0     slow
+MC18  36        --                    --                  --                --             0     slow
+MC19  35        --                    --                  --                --             0     slow
+MC20  33   on   MISO_ENA       Dg--p  --                  --                --             3     slow
+MC21  32   on   FPGA2_RESET    Dg-g-  --                  --                --             2     slow
+MC22  31   on   FPGA1_RESET    Dg-g-  --                  --                --             2     slow
+MC23  30   on   EE_I2C_CLK_ENA Dg--p  --                  --                --             3     slow
+MC24  29   on   WP_I2C_EEPROM  Dg-g-  --                  --                --             2     slow
+MC25  25        --                    --                  --                --             0     slow
+MC26  23   on   TX2_BUF_ENA    Dg--p  --                  XXL_231           --             4     slow
+MC27  21   on   RS_232         Dg-g-  --                  XXL_229           --             3     slow
+MC28  20   --   AB18           INPUT  --                  XXL_227           --             1     slow
+MC29  19   --   AB17           INPUT  ABB17        Dg---  XXL_221           --             2     slow
+MC30  17   --   AB16           INPUT  ABB16        Dg---  XXL_223           --             2     slow
+MC31  16   --   AB15           INPUT  ABB15        Dg---  XXL_219           --             2     slow
+MC32  15   --   TMS            INPUT  ABB13        Dg---  XXL_212           --             2     slow
+MC33  40        --                    --                  --                --             0     slow
+MC34  41        --                    --                  --                --             0     slow
+MC35  42   on   WP_FLASH_2     Dg-g-  --                  --                --             2     slow
+MC36  44   on   CS_FLASH_1     Dg--p  --                  --                --             3     slow
+MC37  45   on   CS_FLASH_2     Dg--p  --                  --                --             3     slow
+MC38  46   on   WP_FLASH_1     Dg-g-  --                  --                --             2     slow
+MC39  47   on   CS_FPGA_1_AL   C----  --                  --                --             1     slow
+MC40  48   on   CS_FPGA_2_AL   C----  --                  --                --             1     slow
+MC41  52   on   CPLD_TP_0      C----  --                  XXL_235           --             3     slow
+MC42  54   on   CPLD_TP_1      C----  --                  XXL_233           --             3     slow
+MC43  56   on   CPLD_TP_2      C----  --                  XXL_217           --             3     slow
+MC44  57   on   CPLD_TP_3      C----  --                  XXL_215           --             3     slow
+MC45  58        --                    --                  CPLD_TP_2_ADDR_AM --             1     slow
+MC46  60        --                    --                  CPLD_TP_3_ADDR_AM --             1     slow
+MC47  61        --                    --                  CPLD_TP_1_ADDR_AM --             1     slow
+MC48  62   --   TCK            INPUT  --                  CPLD_TP_0_ADDR_AM --             1     slow
+MC49  63        --                    --                  --                --             0     slow
+MC50  64   on   CPLD_LED_1     Dg--p  --                  --                --             3     slow
+MC51  65        --                    --                  --                --             0     slow
+MC52  67   on   CPLD_SPARE_0   C----  --                  --                --             1     slow
+MC53  68   on   CPLD_SPARE_1   C----  --                  --                --             1     slow
+MC54  69   on   CPLD_SPARE_2   C----  --                  --                --             1     slow
+MC55  71   on   CPLD_SPARE_3   C----  --                  --                --             1     slow
+MC56  73   --   TDO            INPUT  --                  --                --             0     slow
+MC57  75        --                    --                  --                --             0     slow
+MC58  76   on   CPLD_LED_0     Dg-g-  --                  --                --             2     slow
+MC59  79        --                    --                  --                --             0     slow
+MC60  80   --   CXS_AL         INPUT  --                  --                --             0     slow
+MC61  81        --                    --                  --                --             0     slow
+MC62  83   --   RE_AL          INPUT  --                  --                --             0     slow
+MC63  84   --   WE_AL          INPUT  ABB18        Dg---  XXL_239           --             2     slow
+MC64  85        --                    --                  XXL_237           --             1     slow
+MC0   90        --                    --                  --                --             0     slow
+MC0   89        RESET_AL       INPUT  --                  --                --             0     slow
+MC0   88        --                    --                  --                --             0     slow
+MC0   87        XCLK_A         INPUT  --                  --                --             0     slow
+
+Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
+A: LC1	- LC16		12/16(75%)	9/16(56%)	1/16(6%)	20/80(25%)	(25)	0
+B: LC17	- LC32		11/16(68%)	12/16(75%)	7/16(43%)	28/80(35%)	(25)	0
+C: LC33	- LC48		10/16(62%)	11/16(68%)	8/16(50%)	28/80(35%)	(26)	0
+D: LC49	- LC64		7/16(43%)	10/16(62%)	2/16(12%)	12/80(15%)	(23)	0
+
+Total dedicated input used:	2/4 	(50%)
+Total I/O pins used		42/64 	(65%)
+Total Logic cells used 		40/64 	(62%)
+Total Flip-Flop used 		29/64 	(45%)
+Total Foldback logic used 	18/64 	(28%)
+Total Nodes+FB/MCells 		58/64 	(90%)
+Total cascade used 		0
+Total input pins 		20
+Total output pins 		24
+Total Pts 			88
+Creating pla file T:\ATMEL_WINCUPL_PROJ\ATF1504_JK_N_MUX_110\ATF1504_JK_N_MUX_110.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
+
+----------------  End fitter, Design FITS
+$Device TQFP100 fits 
+FIT1504 completed in 0.00 seconds
