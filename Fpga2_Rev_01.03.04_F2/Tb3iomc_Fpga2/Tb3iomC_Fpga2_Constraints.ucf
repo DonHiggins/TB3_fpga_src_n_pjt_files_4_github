@@ -1,0 +1,282 @@
+//
+//NET <I/O_NAME> LOC = "<EXTERNAL_PORT_IDENTIFIER>";
+//NET <I/O_NAME> IOSTANDARD="<IOSTANDARD VALUE>";
+//NET <I/O_NAME> DRIVE = "<DRIVE_VALUE>"; (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+//NET <I/O_NAME> <PULLUP/PULLDOWN/KEEPER/FLOAT>;
+//
+//
+//LVTTL-Low-Voltage TTL
+//The Low-Voltage TTL (LVTTL) standard is a general-purpose EIA/JESD standard for 3.3V
+//applications that uses an LVTTL input buffer and a push-pull output buffer. This standard
+//requires a 3.3V output source voltage (VCCO), but does not require the use of a reference
+//voltage (VREF) or a termination voltage (VTT).
+//
+//
+// Clocks
+NET "clkDspIn" LOC = "N7";
+NET "clkDspIn" IOSTANDARD="LVTTL";
+// 37.5 MH -> 26.667 ns period
+// following establishes a timing constraint for our place and rout
+// supposedly this enforces 37.5 MHz compliance, 
+// and also 75MHz compliance for nets clocked by our PLL derived 75 MHz clock.
+NET "clkDspIn" TNM_NET = "clkDspIn";
+TIMESPEC "TS_clkDspIn" = PERIOD "clkDspIn" 26.666000 ns HIGH 50%;
+// TEMPORARY:  allows me to see 75MHz clock output on testpoint
+// with understanding this degrades performance
+// PIN "bufg_clk75Mhz.O" CLOCK_DEDICATED_ROUTE = FALSE;
+
+// Bus Control Signals
+NET "re" LOC = "N14";
+NET "re" IOSTANDARD="LVTTL";
+NET "we" LOC = "R6";
+NET "we" IOSTANDARD="LVTTL";
+// io_xcs (aka io_csx) is the DSP's XZCS2 signal -- a chip select, activated
+// whenever the dsp does a read or write to an address in "external block #2.
+// We might have used it as an address qualifier, but found it wasn't necessary.
+// The circuit still runs to an FPGA I/O pin is case the is furture need of it.
+//NET "io_xcs" LOC = "R6";
+//NET "io_xcs" IOSTANDARD="LVTTL";
+NET "cpld_reset" LOC = "E7";
+NET "cpld_reset" IOSTANDARD="LVTTL";
+NET "dsp_reset" LOC = "N9";
+NET "dsp_reset" IOSTANDARD="LVTTL";
+
+NET "cs_fpga_2" LOC = "M9";
+NET "cs_fpga_2" IOSTANDARD="LVTTL";
+
+
+// Address Bus 
+NET "ab[0]" LOC = "R13";
+NET "ab[0]" IOSTANDARD="LVTTL";
+NET "ab[1]" LOC = "P13";
+NET "ab[1]" IOSTANDARD="LVTTL";
+NET "ab[2]" LOC = "R7";
+NET "ab[2]" IOSTANDARD="LVTTL";
+NET "ab[3]" LOC = "P7";
+NET "ab[3]" IOSTANDARD="LVTTL";
+NET "ab[4]" LOC = "R8";
+NET "ab[4]" IOSTANDARD="LVTTL";
+NET "ab[5]" LOC = "N8";
+NET "ab[5]" IOSTANDARD="LVTTL";
+NET "ab[6]" LOC = "R9";
+NET "ab[6]" IOSTANDARD="LVTTL";
+NET "ab[7]" LOC = "P9";
+NET "ab[7]" IOSTANDARD="LVTTL";
+
+// Data Bus 
+NET "db[0]" LOC = "K13";
+NET "db[0]" IOSTANDARD="LVTTL";
+NET "db[1]" LOC = "M11";
+NET "db[1]" IOSTANDARD="LVTTL";
+NET "db[2]" LOC = "N11";
+NET "db[2]" IOSTANDARD="LVTTL";
+NET "db[3]" LOC = "P5";
+NET "db[3]" IOSTANDARD="LVTTL";
+NET "db[4]" LOC = "R5";
+NET "db[4]" IOSTANDARD="LVTTL";
+NET "db[5]" LOC = "L6";
+NET "db[5]" IOSTANDARD="LVTTL";
+NET "db[6]" LOC = "L5";
+NET "db[6]" IOSTANDARD="LVTTL";
+NET "db[7]" LOC = "N6";
+NET "db[7]" IOSTANDARD="LVTTL";
+NET "db[8]" LOC = "M5";
+NET "db[8]" IOSTANDARD="LVTTL";
+NET "db[9]" LOC = "N5";
+NET "db[9]" IOSTANDARD="LVTTL";
+NET "db[10]" LOC = "R10";
+NET "db[10]" IOSTANDARD="LVTTL";
+NET "db[11]" LOC = "L9";
+NET "db[11]" IOSTANDARD="LVTTL";
+NET "db[12]" LOC = "M10";
+NET "db[12]" IOSTANDARD="LVTTL";
+NET "db[13]" LOC = "M8";
+NET "db[13]" IOSTANDARD="LVTTL";
+NET "db[14]" LOC = "K8";
+NET "db[14]" IOSTANDARD="LVTTL";
+NET "db[15]" LOC = "L8";
+NET "db[15]" IOSTANDARD="LVTTL";
+
+// LEDs
+NET "led[0]" LOC = "C9";
+NET "led[0]" IOSTANDARD="LVTTL";
+NET "led[0]" DRIVE = "4";    // (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+NET "led[1]" LOC = "F3";
+NET "led[1]" IOSTANDARD="LVTTL";
+NET "led[1]" DRIVE = "4";    // (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+
+// testpoints, used for debugging
+NET "testpoint[0]" LOC = "A3";
+NET "testpoint[0]" IOSTANDARD="LVTTL";
+NET "testpoint[1]" LOC = "B3";
+NET "testpoint[1]" IOSTANDARD="LVTTL";
+NET "testpoint[2]" LOC = "A2";
+NET "testpoint[2]" IOSTANDARD="LVTTL";
+NET "testpoint[3]" LOC = "C4";
+NET "testpoint[3]" IOSTANDARD="LVTTL";
+
+// AD7682 Analog to Digital Converter 
+NET "adc_sdo_ai_a" LOC = "C1";
+NET "adc_sdo_ai_a" IOSTANDARD="LVTTL";
+NET "adc_sdi_ai_a" LOC = "C2";
+NET "adc_sdi_ai_a" IOSTANDARD="LVTTL";
+NET "adc_clk_ai_a" LOC = "D3";
+NET "adc_clk_ai_a" IOSTANDARD="LVTTL";
+NET "adc_cvst_ai_a" LOC = "D1";
+NET "adc_cvst_ai_a" IOSTANDARD="LVTTL";
+
+NET "adc_sdo_ai_b" LOC = "E3";
+NET "adc_sdo_ai_b" IOSTANDARD="LVTTL";
+NET "adc_sdi_ai_b" LOC = "D4";
+NET "adc_sdi_ai_b" IOSTANDARD="LVTTL";
+NET "adc_clk_ai_b" LOC = "E2";
+NET "adc_clk_ai_b" IOSTANDARD="LVTTL";
+NET "adc_cs_ai_b" LOC = "E1";
+NET "adc_cs_ai_b" IOSTANDARD="LVTTL";
+
+NET "anlg_in_fltr_clk" LOC = "K10";
+NET "anlg_in_fltr_clk" IOSTANDARD="LVTTL";
+
+
+
+// I/O Pin Disconnect Switches
+NET "io_pin_switches[0]" LOC = "D5";	//F_DIG_OUT_CD_TO_PIN_SW
+NET "io_pin_switches[0]" IOSTANDARD="LVTTL";
+NET "io_pin_switches[1]" LOC = "C5";	//F_DIG_OUT_EF_TO_PIN_SW
+NET "io_pin_switches[1]" IOSTANDARD="LVTTL";
+NET "io_pin_switches[2]" LOC = "A5";	//F_DIG_OUT_AB_TO_PIN_SW
+NET "io_pin_switches[2]" IOSTANDARD="LVTTL";
+NET "io_pin_switches[3]" LOC = "D8";	//RES_REF_IN_FM_PIN_SW
+NET "io_pin_switches[3]" IOSTANDARD="LVTTL";
+NET "io_pin_switches[4]" LOC = "B9";	//RES_OUT_TO_PIN_SW
+NET "io_pin_switches[4]" IOSTANDARD="LVTTL";
+NET "io_pin_switches[5]" LOC = "A9";	//SS_ENC_DAT_FM_PIN_SW
+NET "io_pin_switches[5]" IOSTANDARD="LVTTL";
+NET "io_pin_switches[6]" LOC = "F8";	//ANLG_IN_FM_PIN_SW
+NET "io_pin_switches[6]" IOSTANDARD="LVTTL";
+NET "io_pin_switches[7]" LOC = "E8";	//ANLG_OUT_FM_PIN_SW
+NET "io_pin_switches[7]" IOSTANDARD="LVTTL";
+NET "io_pin_switches[8]" LOC = "D10";	//SS_ENC_ANLG_FM_PIN_SW
+NET "io_pin_switches[8]" IOSTANDARD="LVTTL";
+NET "io_pin_switches[9]" LOC = "F10";	//DIG_IN_FM_PIN_SW
+NET "io_pin_switches[9]" IOSTANDARD="LVTTL";
+NET "io_pin_switches[10]" LOC = "E9";	//DIFF_IN_FM_PIN_SW
+NET "io_pin_switches[10]" IOSTANDARD="LVTTL";
+NET "io_pin_switches[11]" LOC = "C10";	//DIFF_OUT_FM_PIN_SW
+NET "io_pin_switches[11]" IOSTANDARD="LVTTL";
+
+// Self Test Loopback Switches
+NET "self_test_switches[0]" LOC = "E6";	//DIFF_LOOPBACK_SW
+NET "self_test_switches[0]" IOSTANDARD="LVTTL";
+NET "self_test_switches[1]" LOC = "B5";	//RES_TEST_REF_SW
+NET "self_test_switches[1]" IOSTANDARD="LVTTL";
+NET "self_test_switches[2]" LOC = "C6";	//DIG_IN_LOOP_SW
+NET "self_test_switches[2]" IOSTANDARD="LVTTL";
+NET "self_test_switches[3]" LOC = "A6";	//SS_CLK_DAT_LOOP_SW
+NET "self_test_switches[3]" IOSTANDARD="LVTTL";
+NET "self_test_switches[4]" LOC = "C11";	//ST_DC_V_SW_3
+NET "self_test_switches[4]" IOSTANDARD="LVTTL";
+NET "self_test_switches[5]" LOC = "B13";	//ST_DC_V_SW_0
+NET "self_test_switches[5]" IOSTANDARD="LVTTL";
+NET "self_test_switches[6]" LOC = "C12";	//ST_DC_V_SW_2
+NET "self_test_switches[6]" IOSTANDARD="LVTTL";
+NET "self_test_switches[7]" LOC = "A12";	//ST_DC_V_SW_1
+NET "self_test_switches[7]" IOSTANDARD="LVTTL";
+
+// Integrator Switch
+NET "integrator_switch" LOC = "A4";	//SHORT_INT_SW
+NET "integrator_switch" IOSTANDARD="LVTTL";
+
+// Loopback Mux for analog self-test
+NET "loopback_mux[0]" LOC = "A11";	//ANLG_MUX_A0
+NET "loopback_mux[0]" IOSTANDARD="LVTTL";
+NET "loopback_mux[1]" LOC = "B11";	//ANLG_MUX_A1
+NET "loopback_mux[1]" IOSTANDARD="LVTTL";
+NET "loopback_mux[2]" LOC = "A10";	//ANLG_MUX_A2
+NET "loopback_mux[2]" IOSTANDARD="LVTTL";
+NET "loopback_mux[3]" LOC = "D11";	//ANLG_MUX_EN
+NET "loopback_mux[3]" IOSTANDARD="LVTTL";
+
+// 24-Bit A-to-D Analog in B1 Switches
+// select options to connect various sources as input B1 to ADC
+NET "anlg_in_b1_switches[0]" LOC = "D7";	//AN_IN_B1_STD_SW
+NET "anlg_in_b1_switches[0]" IOSTANDARD="LVTTL";
+NET "anlg_in_b1_switches[1]" LOC = "C7";	//AN_IN_B1_HI_SW
+NET "anlg_in_b1_switches[1]" IOSTANDARD="LVTTL";
+NET "anlg_in_b1_switches[2]" LOC = "A8";	//AN_IN_B1_GND_SW
+NET "anlg_in_b1_switches[2]" IOSTANDARD="LVTTL";
+NET "anlg_in_b1_switches[3]" LOC = "C8";	//AN_IN_B1_2V5_SW
+NET "anlg_in_b1_switches[3]" IOSTANDARD="LVTTL";
+
+
+// Differential Inputs
+NET "diff_in[0]" LOC = "H10";	
+NET "diff_in[0]" IOSTANDARD="LVTTL";
+NET "diff_in[1]" LOC = "H11";	
+NET "diff_in[1]" IOSTANDARD="LVTTL";
+NET "diff_in[2]" LOC = "H13";	
+NET "diff_in[2]" IOSTANDARD="LVTTL";
+NET "diff_in[3]" LOC = "H15";	
+NET "diff_in[3]" IOSTANDARD="LVTTL";
+NET "diff_in[4]" LOC = "J11";	
+NET "diff_in[4]" IOSTANDARD="LVTTL";
+NET "diff_in[5]" LOC = "J13";	
+NET "diff_in[5]" IOSTANDARD="LVTTL";
+NET "diff_in[6]" LOC = "J14";	
+NET "diff_in[6]" IOSTANDARD="LVTTL";
+NET "diff_in[7]" LOC = "J15";	
+NET "diff_in[7]" IOSTANDARD="LVTTL";
+
+// Digital Inputs (Single Ended)
+NET "dig_in_A[0]" LOC = "F11";	
+NET "dig_in_A[0]" IOSTANDARD="LVTTL";
+NET "dig_in_A[1]" LOC = "F12";	
+NET "dig_in_A[1]" IOSTANDARD="LVTTL";
+NET "dig_in_A[2]" LOC = "F13";	
+NET "dig_in_A[2]" IOSTANDARD="LVTTL";
+NET "dig_in_A[3]" LOC = "F15";	
+NET "dig_in_A[3]" IOSTANDARD="LVTTL";
+
+NET "dig_in_B[0]" LOC = "G11";	
+NET "dig_in_B[0]" IOSTANDARD="LVTTL";
+NET "dig_in_B[1]" LOC = "G12";	
+NET "dig_in_B[1]" IOSTANDARD="LVTTL";
+NET "dig_in_B[2]" LOC = "G14";	
+NET "dig_in_B[2]" IOSTANDARD="LVTTL";
+NET "dig_in_B[3]" LOC = "G15";	
+NET "dig_in_B[3]" IOSTANDARD="LVTTL";
+
+NET "dig_in_C[0]" LOC = "B14";	
+NET "dig_in_C[0]" IOSTANDARD="LVTTL";
+NET "dig_in_C[1]" LOC = "B15";	
+NET "dig_in_C[1]" IOSTANDARD="LVTTL";
+NET "dig_in_C[2]" LOC = "C14";	
+NET "dig_in_C[2]" IOSTANDARD="LVTTL";
+NET "dig_in_C[3]" LOC = "C15";	
+NET "dig_in_C[3]" IOSTANDARD="LVTTL";
+
+NET "dig_in_D[0]" LOC = "D13";	
+NET "dig_in_D[0]" IOSTANDARD="LVTTL";
+NET "dig_in_D[1]" LOC = "D15";	
+NET "dig_in_D[1]" IOSTANDARD="LVTTL";
+NET "dig_in_D[2]" LOC = "E14";	
+NET "dig_in_D[2]" IOSTANDARD="LVTTL";
+NET "dig_in_D[3]" LOC = "E15";	
+NET "dig_in_D[3]" IOSTANDARD="LVTTL";
+
+NET "ss_enc_clk_dir" LOC = "L14";
+NET "ss_enc_clk_dir" IOSTANDARD="LVTTL";
+NET "ss_enc_clk_in" LOC = "K11";
+NET "ss_enc_clk_in" IOSTANDARD="LVTTL";
+NET "ss_enc_clk_out" LOC = "L15";
+NET "ss_enc_clk_out" IOSTANDARD="LVTTL";
+NET "ss_enc_dat_dir" LOC = "K12";
+NET "ss_enc_dat_dir" IOSTANDARD="LVTTL";
+NET "ss_enc_di" LOC = "K15";
+NET "ss_enc_di" IOSTANDARD="LVTTL";
+NET "ss_enc_do" LOC = "L12";
+NET "ss_enc_do" IOSTANDARD="LVTTL";
+
+NET "io_interrupt_2" LOC = "P2";
+NET "io_interrupt_2" IOSTANDARD="LVTTL";
+
