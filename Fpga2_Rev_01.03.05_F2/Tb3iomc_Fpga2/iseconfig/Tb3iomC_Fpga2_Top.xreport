@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-06-19T13:02:27</DateModified>
+  <DateModified>2017-07-21T08:37:00</DateModified>
   <ModuleName>Tb3iomC_Fpga2_Top</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>S:/Xilinx_Prj_Tb3iomc_Fpga2/Rev_01.03.06_F2/Tb3iomC_Fpga1/iseconfig/Tb3iomC_Fpga2_Top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>S:/Xilinx_Prj_Tb3iomc_Fpga2/Rev_01.03.06_F2/Tb3iomC_Fpga1\</ImplementationReportsDirectory>
+  <SavedFilePath>S:/Xilinx_Prj_Tb3iomc_Fpga2/Rev_01.03.06_F2/Tb3iomc_Fpga2/iseconfig/Tb3iomC_Fpga2_Top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>S:/Xilinx_Prj_Tb3iomc_Fpga2/Rev_01.03.06_F2/Tb3iomc_Fpga2\</ImplementationReportsDirectory>
   <DateInitialized>2016-07-18T08:58:29</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
