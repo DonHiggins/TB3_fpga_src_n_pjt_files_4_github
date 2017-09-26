@@ -191,7 +191,7 @@ module More_Test(
 			     led_function[1:0] <= db_in[1:0];
 				end	  
             (WRITE_LED_DIRECTLY) : begin
-               led_from_dsp_reg <= db_in[0];
+               led_from_dsp_reg[1:0] <= db_in[1:0];
                // led_from_dsp_direct_debug <= 1;	// DEBUG				
 				end	  
 			   default: begin

@@ -19,15 +19,19 @@
          <ClosedNode>/Tb3iomC_Fpga2_Top S:|Xilinx_Prj_Tb3iomc_Fpga2|Rev_01.03.04_F2|Tb3iomc_Fpga2|Tb3iomC_Fpga2_Top.v/BDB - BiDir_Bus_16/ADC - Adc_App/ad7175_ctrl - ADC_AD7175_Ctrl</ClosedNode>
          <ClosedNode>/Tb3iomC_Fpga2_Top S:|Xilinx_Prj_Tb3iomc_Fpga2|Rev_01.03.04_F2|Tb3iomc_Fpga2|Tb3iomC_Fpga2_Top.v/BDB - BiDir_Bus_16/ADC - Adc_App/ad7682_a - adc_ad7682</ClosedNode>
          <ClosedNode>/Tb3iomC_Fpga2_Top S:|Xilinx_Prj_Tb3iomc_Fpga2|Rev_01.03.04_F2|Tb3iomc_Fpga2|Tb3iomC_Fpga2_Top.v/BDB - BiDir_Bus_16/SSE - SS_Enc_Dig_App</ClosedNode>
+         <ClosedNode>/Tb3iomC_Fpga2_Top S:|Xilinx_Prj_Tb3iomc_Fpga2|Rev_01.03.05_F2|Tb3iomc_Fpga2|Tb3iomC_Fpga2_Top.v/BDB - BiDir_Bus_16/ADC - Adc_App</ClosedNode>
+         <ClosedNode>/Tb3iomC_Fpga2_Top S:|Xilinx_Prj_Tb3iomc_Fpga2|Rev_01.03.05_F2|Tb3iomc_Fpga2|Tb3iomC_Fpga2_Top.v/BDB - BiDir_Bus_16/ADC - Adc_App/ad7175_ctrl - ADC_AD7175_Ctrl</ClosedNode>
+         <ClosedNode>/Tb3iomC_Fpga2_Top S:|Xilinx_Prj_Tb3iomc_Fpga2|Rev_01.03.05_F2|Tb3iomc_Fpga2|Tb3iomC_Fpga2_Top.v/BDB - BiDir_Bus_16/ADC - Adc_App/ad7682_a - adc_ad7682</ClosedNode>
+         <ClosedNode>/Tb3iomC_Fpga2_Top S:|Xilinx_Prj_Tb3iomc_Fpga2|Rev_01.03.05_F2|Tb3iomc_Fpga2|Tb3iomC_Fpga2_Top.v/BDB - BiDir_Bus_16/SSE - SS_Enc_Dig_App</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Automatic `includes</SelectedItem>
+         <SelectedItem>Tb3iomC_Fpga2_Top (S:/Xilinx_Prj_Tb3iomc_Fpga2/Rev_01.03.06_F2/Tb3iomc_Fpga2/Tb3iomC_Fpga2_Top.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000014c000000020000000000000000000000000200000064ffffffff0000008100000003000000020000014c0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001b1000000020000000000000000000000000200000064ffffffff000000810000000300000002000001b10000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Automatic `includes</CurrentItem>
+      <CurrentItem>Tb3iomC_Fpga2_Top (S:/Xilinx_Prj_Tb3iomc_Fpga2/Rev_01.03.06_F2/Tb3iomc_Fpga2/Tb3iomC_Fpga2_Top.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -76,13 +80,13 @@
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000012d000000010000000100000000000000000000000064ffffffff0000008100000000000000010000012d0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
       <ClosedNodes>

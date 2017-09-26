@@ -1,4 +1,26 @@
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Rev_01.03.06_F2 
+
+07/21/2017 --	Exploring irregularity with LED handling.
+               Corrected issue where only 1 LSB of data from DSP was used when LED_DIRECTLY_FROM_DSP
+					function was set.  Now uses 2 LS bits of data from DSP.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Rev_01.03.05_F2 
+
+05/31/2017 --	No changes as yet, rolled new version to store Rev_01.03.04_F2 in GitHub
+
+06/01/2017 --  Adding Digital Input Machines -- Need to add Encoder Input machine
+               Added Enca period and on-time measurement.  Need to add enci period, and enc_dir.
+
+06/05/2017 --  Ported encoder state machine from original NTSTSYS VHDL.  It calculates
+               Dir and Counts.
+
+06/07/2017 --  Add mechanism to zero out encoder counts.
+
+06/12/2017 --  Have all Encoder input code in place, including legacy compatible Enc_Index_Freq_Divisor.
+ 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Rev_01.03.04_F2 
 
 02/01/2017 --	No changes as yet, rolled new version to store Rev_01.03.03_F2 in GitHub

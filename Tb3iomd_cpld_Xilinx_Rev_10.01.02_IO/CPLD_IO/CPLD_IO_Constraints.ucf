@@ -1,0 +1,120 @@
+//
+//NET <I/O_NAME> LOC = "<EXTERNAL_PORT_IDENTIFIER>";
+//NET <I/O_NAME> IOSTANDARD="<IOSTANDARD VALUE>";
+//NET <I/O_NAME> DRIVE = "<DRIVE_VALUE>"; (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+//NET <I/O_NAME> <PULLUP/PULLDOWN/KEEPER/FLOAT>;
+//
+//
+//LVTTL-Low-Voltage TTL
+//The Low-Voltage TTL (LVTTL) standard is a general-purpose EIA/JESD standard for 3.3V
+//applications that uses an LVTTL input buffer and a push-pull output buffer. This standard
+//requires a 3.3V output source voltage (VCCO), but does not require the use of a reference
+//voltage (VREF) or a termination voltage (VTT).
+//
+
+
+// Clocks
+NET "clkDspIn" LOC = "22";
+NET "clkDspIn" IOSTANDARD="LVTTL";
+// 37.5 MH -> 26.667 ns period
+// following establishes a timing constraint for our place and rout
+// supposedly this enforces 37.5 MHz compliance, 
+// and also 75MHz compliance for nets clocked by our PLL derived 75 MHz clock.
+NET "clkDspIn" TNM_NET = "clkDspIn";
+TIMESPEC "TS_clkDspIn" = PERIOD "clkDspIn" 26.666000 ns HIGH 50%;
+// TEMPORARY:  allows me to see 75MHz clock output on testpoint
+// with understanding this degrades performance
+// PIN "bufg_clk75Mhz.O" CLOCK_DEDICATED_ROUTE = FALSE;
+
+
+// Bus Control Signals
+NET "re" LOC = "2";
+NET "re" IOSTANDARD="LVTTL";
+NET "we" LOC = "1";
+NET "we" IOSTANDARD="LVTTL";
+// io_xcs (aka io_csx) is the DSP's XZCS2 signal -- a chip select, activated
+// whenever the dsp does a read or write to an address in "external block #2.
+// We might have used it as an address qualifier, but found it wasn't necessary.
+// The circuit still runs to an FPGA I/O pin is case the is furture need of it.
+//NET "io_xcs" LOC = "3";
+//NET "io_xcs" IOSTANDARD="LVTTL";
+NET "dsp_reset" LOC = "99";
+NET "dsp_reset" IOSTANDARD="LVTTL";
+
+// Address Bus [10:0] // actually [18:8] of external bus from DSP
+NET "ab[0]" LOC = "6";
+NET "ab[0]" IOSTANDARD="LVTTL";
+NET "ab[1]" LOC = "7";
+NET "ab[1]" IOSTANDARD="LVTTL";
+NET "ab[2]" LOC = "8";
+NET "ab[2]" IOSTANDARD="LVTTL";
+NET "ab[3]" LOC = "9";
+NET "ab[3]" IOSTANDARD="LVTTL";
+NET "ab[4]" LOC = "10";
+NET "ab[4]" IOSTANDARD="LVTTL";
+NET "ab[5]" LOC = "11";
+NET "ab[5]" IOSTANDARD="LVTTL";
+NET "ab[6]" LOC = "12";
+NET "ab[6]" IOSTANDARD="LVTTL";
+NET "ab[7]" LOC = "13";
+NET "ab[7]" IOSTANDARD="LVTTL";
+NET "ab[8]" LOC = "14";
+NET "ab[8]" IOSTANDARD="LVTTL";
+NET "ab[9]" LOC = "15";
+NET "ab[9]" IOSTANDARD="LVTTL";
+NET "ab[10]" LOC = "16";
+NET "ab[10]" IOSTANDARD="LVTTL";
+
+// LEDs
+NET "led[0]" LOC = "73";
+NET "led[0]" IOSTANDARD="LVTTL";
+NET "led[0]" DRIVE = "4";    // (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+NET "led[1]" LOC = "71";
+NET "led[1]" IOSTANDARD="LVTTL";
+NET "led[1]" DRIVE = "4";    // (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+
+// testpoints, used for debugging
+NET "testpoint[0]" LOC = "58";
+NET "testpoint[0]" IOSTANDARD="LVTTL";
+NET "testpoint[1]" LOC = "59";
+NET "testpoint[1]" IOSTANDARD="LVTTL";
+NET "testpoint[2]" LOC = "60";
+NET "testpoint[2]" IOSTANDARD="LVTTL";
+NET "testpoint[3]" LOC = "61";
+NET "testpoint[3]" IOSTANDARD="LVTTL";
+
+// set/reset flipflop outputs
+NET "rs_232" LOC = "18";
+NET "rs_232" IOSTANDARD="LVTTL";
+NET "tx2_buf_ena" LOC = "17";
+NET "tx2_buf_ena" IOSTANDARD="LVTTL";
+NET "wp_i2c_eeprom" LOC = "32";
+NET "wp_i2c_eeprom" IOSTANDARD="LVTTL";
+NET "ee_i2c_clk_ena" LOC = "33";
+NET "ee_i2c_clk_ena" IOSTANDARD="LVTTL";
+NET "fpga1_reset" LOC = "34";
+NET "fpga1_reset" IOSTANDARD="LVTTL";
+NET "fpga2_reset" LOC = "35";
+NET "fpga2_reset" IOSTANDARD="LVTTL";
+NET "miso_ena" LOC = "36";
+NET "miso_ena" IOSTANDARD="LVTTL";
+NET "wp_flash_2" LOC = "37";
+NET "wp_flash_2" IOSTANDARD="LVTTL";
+NET "cs_flash_1" LOC = "39";
+NET "cs_flash_1" IOSTANDARD="LVTTL";
+NET "cs_flash_2" LOC = "40";
+NET "cs_flash_2" IOSTANDARD="LVTTL";
+NET "wp_flash_1" LOC = "41";
+NET "wp_flash_1" IOSTANDARD="LVTTL";
+
+// asynchronous mux outputs
+NET "cs_fpga_1" LOC = "42";
+NET "cs_fpga_1" IOSTANDARD="LVTTL";
+NET "cs_fpga_2" LOC = "43";
+NET "cs_fpga_2" IOSTANDARD="LVTTL";
+NET "cpld_spare_0" LOC = "52";
+NET "cpld_spare_0" IOSTANDARD="LVTTL";
+
+
+
+
