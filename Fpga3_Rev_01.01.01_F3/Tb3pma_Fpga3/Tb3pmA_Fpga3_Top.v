@@ -3,80 +3,26 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    04:29:00 03/03/2015 
+// Create Date:    12:33:35 7/2/2018 
 // Design Name: 
-// Module Name:    Tb3iomC_Fpga2_Top
+// Module Name:    Tb3pmA_Fpga3_Top
 // Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
 //
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Tb3iomC_Fpga2_Top(
-    input clkDspIn,
-    input re,
-    input we,
-	 
-	 //input io_cxs,
-		// io_xcs (aka io_csx) is the DSP's XZCS2 signal -- a chip select, activated
-		// whenever the dsp does a read or write to an address in "external block #2.
-		// We might have used it as an address qualifier, but found it wasn't necessary.
-		// The circuit still runs to an FPGA I/O pin is case the is furture need of it.
-
-    input cpld_reset,
-	 input dsp_reset,
-    input cs_fpga_2,
-    input [7:0] ab,
-    inout [15:0] db,
-    output [1:0]led,
-	 output [3:0] testpoint,
-
-	 // 4 digital lines to ADC7682
-	 input adc_sdo_ai_a,
-	 output adc_sdi_ai_a,
-	 output adc_clk_ai_a,
-	 output adc_cvst_ai_a,
-	 input adc_sdo_ai_b,
-	 output adc_sdi_ai_b,
-	 output adc_clk_ai_b,
-	 output adc_cs_ai_b,
-
-	 // clock sets cuttoff freq for 8-pole filters in Analog Inputs 5-8
-	 output anlg_in_fltr_clk,
-	 
-	 // analog switches
-	 output [11:0] io_pin_switches,
-	 output [7:0] self_test_switches,
-	 output integrator_switch,
-	 output [3:0]loopback_mux,
-	 output [3:0]anlg_in_b1_switches,
-	 
-	 // digital inputs (single ended)
-	 input [3:0] dig_in_A,
-	 input [3:0] dig_in_B,
-	 input [3:0] dig_in_C,
-	 input [3:0] dig_in_D,
-
-	 // differential Inputs
-	 input [7:0] diff_in,
-
-	 // SS Enc digital interface pins
-	 output ss_enc_clk_dir,
-	 input ss_enc_clk_in,
-	 output ss_enc_clk_out,
-	 output ss_enc_dat_dir,
-	 input ss_enc_di,
-	 output ss_enc_do,
-	 
-	 output io_interrupt_2
-	 
-    );
+module Tb3pmA_Fpga3_Top(
+	input clkDspIn,
+	input re,
+	input we,
+//	input pm_xcs,
+	input cpld_reset,
+	input dsp_reset,
+	input cs_fpga_3,
+	input [7:0] ab,
+	inout [15:0] db,
+	output [1:0] led,
+	output [3:0] testpoint
+	);
 
 // DSP provides a reset line that goes LOW when the DSP gets reset, like 
 // from a dsp watchdog reset.  However that line is not LOW when the FPGA
@@ -87,25 +33,24 @@ module Tb3iomC_Fpga2_Top(
 // variables when it starts operating at the completion of configuration.
 	assign reset = dsp_reset & cpld_reset;
 
-// DEBUGGING -- option to rout internal signals to testpoints[3:0]
-// Here is where we assign signals to our 4 testpoints for debugging.
+
+// - - - - - - D E B U G G I N G   T E S T P O I N T S - - - - - - - - - - - -	 
+// DEBUGGING --  (1) we can assign local internal signals to testpoints[3:0]
+// or (2) we can use "testpt" signals passed up from lower modules
 // Signals may be ones used on this level, like inputs & outputs in the module
-// definition, above, or they may be signals passed back up from a lower
-// level module via the testpt[] parameter.
 
+// (1)
 //	assign testpoint[0] = xclk;
-//	assign testpoint[1] = clk75Mhz;
+//	assign testpoint[1] = we;
 //	assign testpoint[2] = reset;
-//	assign testpoint[3] = testpt[0];
+//	assign testpoint[3] = cs_fpga_3;
+// (2)
+	assign testpoint[0] = testpt[0];
+	assign testpoint[1] = testpt[1];
+	assign testpoint[2] = testpt[2];
+	assign testpoint[3] = testpt[3];
 
-	assign testpoint[0] = ~reset;
-	assign testpoint[1] = ~reset;
-	assign testpoint[2] = ~reset;
-	assign testpoint[3] = ~reset;
-
-// assign testpoint[3:0] = testpt[3:0];
-	
-//	wire [3:0] testpt; // receive testpoint signals passed up from lower level modules
+	wire [3:0] testpt; // receive testpoint signals passed up from lower level modules
 	                   // can be assigned to physical testpoint output pins, above
 
 
@@ -223,52 +168,18 @@ assign dcm1ResetPll = (resetCounter < 30)	?	1'b1 : 1'b0;
 defparam BDB.ab_offset = 0;
 defparam BDB.bus_id = 0;
 
-BiDir_Bus_16 BDB(
-	.xclk(xclk),			// master clock from DSP external bus clock
-	.db(db),					// bi-directional data bus, 16 bits
-	.reset(reset),			// reset enable (active low)
-	.re(re),					// read enable (active low)
-	.we(we),					// write enable (active low)
-	.cs(cs_fpga_2),			// chip select (active low)
-	.ab(ab),					// address bus (low byte)
-	.led_out(led),			// used to be 4 leds [3:0], then 1, now 2
-//	.testpoint(testpt),     // 4 test points 
-
-	// Analog to Digital Converter
-	.clk75Mhz(clk75Mhz),
-	.adc_sdo_ai_a(adc_sdo_ai_a),
-	.adc_sdi_ai_a(adc_sdi_ai_a),
-	.adc_clk_ai_a(adc_clk_ai_a),
-	.adc_cvst_ai_a(adc_cvst_ai_a),
-	.adc_sdo_ai_b(adc_sdo_ai_b),
-	.adc_sdi_ai_b(adc_sdi_ai_b),
-	.adc_clk_ai_b(adc_clk_ai_b),
-	.adc_cs_ai_b(adc_cs_ai_b),
-	.anlg_in_fltr_clk(anlg_in_fltr_clk),
-
-	// analog switches
-	.io_pin_switches(io_pin_switches),
-	.self_test_switches(self_test_switches),
-	.integrator_switch(integrator_switch),
-	.loopback_mux(loopback_mux),
-	.anlg_in_b1_switches(anlg_in_b1_switches),
-	
-   .dig_in_A(dig_in_A),
-   .dig_in_B(dig_in_B),
-   .dig_in_C(dig_in_C),
-   .dig_in_D(dig_in_D),
-	
-	.diff_in(diff_in),
-	
-	// SS Enc digital interface pins
-	.ss_enc_clk_dir(ss_enc_clk_dir),
-	.ss_enc_clk_in(ss_enc_clk_in),
-	.ss_enc_clk_out(ss_enc_clk_out),
-	.ss_enc_dat_dir(ss_enc_dat_dir),
-	.ss_enc_di(ss_enc_di),
-	.ss_enc_do(ss_enc_do),
-	.io_interrupt_2(io_interrupt_2)
-
-	);
+   BiDir_Bus_16 BDB(
+		.xclk(xclk),				// master clock from DSP external bus clock
+		.clk75Mhz(clk75Mhz),
+		.db(db),						// bi-directional data bus, 16 bits
+		.reset(reset),				// reset enable (active low)
+		.re(re),						// read enable (active low)
+		.we(we),						// write enable (active low)
+		.cs(cs_fpga_3),			// chip select (active low)
+		.ab(ab),						// address bus (low byte)
+		.led_out(led),				// 4 leds [3:0]
+		.testpoint(testpt)		// 4 test points
+		
+    );
 
 endmodule

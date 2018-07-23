@@ -1,0 +1,104 @@
+//
+//NET <I/O_NAME> LOC = "<EXTERNAL_PORT_IDENTIFIER>";
+//NET <I/O_NAME> IOSTANDARD="<IOSTANDARD VALUE>";
+//NET <I/O_NAME> DRIVE = "<DRIVE_VALUE>"; (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+//NET <I/O_NAME> <PULLUP/PULLDOWN/KEEPER/FLOAT>;
+//
+//
+//LVTTL-Low-Voltage TTL
+//The Low-Voltage TTL (LVTTL) standard is a general-purpose EIA/JESD standard for 3.3V
+//applications that uses an LVTTL input buffer and a push-pull output buffer. This standard
+//requires a 3.3V output source voltage (VCCO), but does not require the use of a reference
+//voltage (VREF) or a termination voltage (VTT).
+//
+//
+
+NET "clkDspIn" LOC = "N7";
+NET "clkDspIn" IOSTANDARD="LVTTL";
+// 37.5 MH -> 26.667 ns period
+NET "clkDspIn" TNM_NET = "clkDspIn";
+TIMESPEC "TS_clkDspIn" = PERIOD "clkDspIn" 26.666000 ns HIGH 50%;
+
+NET "re" LOC = "N14";
+NET "re" IOSTANDARD="LVTTL";
+NET "we" LOC = "R6";
+NET "we" IOSTANDARD="LVTTL";
+//NET "pm_xcs" LOC = "M15";
+//NET "pm_xcs" IOSTANDARD="LVTTL";
+NET "cpld_reset" LOC = "E7";			// from CPLD
+NET "cpld_reset" IOSTANDARD="LVTTL";
+NET "dsp_reset" LOC = "N9";			// from DSP
+NET "dsp_reset" IOSTANDARD="LVTTL";
+
+NET "cs_fpga_3" LOC = "M9";
+NET "cs_fpga_3" IOSTANDARD="LVTTL";
+
+
+
+NET "ab[0]" LOC = "R13";
+NET "ab[0]" IOSTANDARD="LVTTL";
+NET "ab[1]" LOC = "P13";
+NET "ab[1]" IOSTANDARD="LVTTL";
+NET "ab[2]" LOC = "R7";
+NET "ab[2]" IOSTANDARD="LVTTL";
+NET "ab[3]" LOC = "P7";
+NET "ab[3]" IOSTANDARD="LVTTL";
+NET "ab[4]" LOC = "R8";
+NET "ab[4]" IOSTANDARD="LVTTL";
+NET "ab[5]" LOC = "N8";
+NET "ab[5]" IOSTANDARD="LVTTL";
+NET "ab[6]" LOC = "R9";
+NET "ab[6]" IOSTANDARD="LVTTL";
+NET "ab[7]" LOC = "P9";
+NET "ab[7]" IOSTANDARD="LVTTL";
+
+NET "db[0]" LOC = "K13";
+NET "db[0]" IOSTANDARD="LVTTL";
+NET "db[1]" LOC = "M11";
+NET "db[1]" IOSTANDARD="LVTTL";
+NET "db[2]" LOC = "N11";
+NET "db[2]" IOSTANDARD="LVTTL";
+NET "db[3]" LOC = "P5";
+NET "db[3]" IOSTANDARD="LVTTL";
+NET "db[4]" LOC = "R5";
+NET "db[4]" IOSTANDARD="LVTTL";
+NET "db[5]" LOC = "L6";
+NET "db[5]" IOSTANDARD="LVTTL";
+NET "db[6]" LOC = "L5";
+NET "db[6]" IOSTANDARD="LVTTL";
+NET "db[7]" LOC = "N6";
+NET "db[7]" IOSTANDARD="LVTTL";
+NET "db[8]" LOC = "M5";
+NET "db[8]" IOSTANDARD="LVTTL";
+NET "db[9]" LOC = "N5";
+NET "db[9]" IOSTANDARD="LVTTL";
+NET "db[10]" LOC = "R10";
+NET "db[10]" IOSTANDARD="LVTTL";
+NET "db[11]" LOC = "L9";
+NET "db[11]" IOSTANDARD="LVTTL";
+NET "db[12]" LOC = "M10";
+NET "db[12]" IOSTANDARD="LVTTL";
+NET "db[13]" LOC = "M8";
+NET "db[13]" IOSTANDARD="LVTTL";
+NET "db[14]" LOC = "K8";
+NET "db[14]" IOSTANDARD="LVTTL";
+NET "db[15]" LOC = "L8";
+NET "db[15]" IOSTANDARD="LVTTL";
+
+
+NET "led[0]" LOC = "C9";
+NET "led[0]" IOSTANDARD="LVTTL";
+NET "led[0]" DRIVE = "4";    // (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+NET "led[1]" LOC = "H10";
+NET "led[1]" IOSTANDARD="LVTTL";
+NET "led[1]" DRIVE = "4";    // (2, 4, 6, 8, 12, and 16 mA, and 24mA)
+                             // LED circuit resistor is sized for 3.3 mA
+
+NET "testpoint[0]" LOC = "A3";
+NET "testpoint[0]" IOSTANDARD="LVTTL";
+NET "testpoint[1]" LOC = "B3";
+NET "testpoint[1]" IOSTANDARD="LVTTL";
+NET "testpoint[2]" LOC = "C4";
+NET "testpoint[2]" IOSTANDARD="LVTTL";
+NET "testpoint[3]" LOC = "A2";
+NET "testpoint[3]" IOSTANDARD="LVTTL";

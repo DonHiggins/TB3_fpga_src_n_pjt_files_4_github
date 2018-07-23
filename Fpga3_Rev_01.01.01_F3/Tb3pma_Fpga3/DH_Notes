@@ -1,0 +1,12 @@
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Rev_01.01.01_F3
+
+07/05/2018 --  Starting FPGA code for FPGA3, single FPGA on TB3PMA.
+               Included code to test the LED's and to exercise the 
+					Bi-Direcrtional Parallel data bus communications 
+					from DSP to FPGA and back.
+
+7/23/2018 -- Rolling to new Rev (01.01.02_F3)
+             Save Rev_01.01.01_F3  in GitHub
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 

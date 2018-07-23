@@ -114,11 +114,11 @@
 //    Following values are automatically edited by FPGA_Timestamp_TB3.vbs 
 //////////////////////////////////////////////////////////////////////////////////
 
-    parameter [15:0]FW_TIMESTAMP_VALUE_1  = 16'h1707;   // YYMM: For ex 8'h1512 = 2015, Dec  (BCD)
-    parameter [15:0]FW_TIMESTAMP_VALUE_2  = 16'h2108;   // DDHr: For ex 8'h2313 = 23rd day at 1pm
-    parameter [15:0]FW_TIMESTAMP_VALUE_3  = 16'h40A5;   // MnA5: For ex 8'h59A5 = 59 minutes, A5 is a constant
+    parameter [15:0]FW_TIMESTAMP_VALUE_1  = 16'h1807;   // YYMM: For ex 8'h1512 = 2015, Dec  (BCD)
+    parameter [15:0]FW_TIMESTAMP_VALUE_2  = 16'h1614;   // DDHr: For ex 8'h2313 = 23rd day at 1pm
+    parameter [15:0]FW_TIMESTAMP_VALUE_3  = 16'h50A5;   // MnA5: For ex 8'h59A5 = 59 minutes, A5 is a constant
     parameter [15:0]FW_REVISION_VALUE_1  = 16'h0103;    // For ex 8'h0A25 . . .
-    parameter [15:0]FW_REVISION_VALUE_2  = 16'h0602;    //        8'h0701 . . . Rev 10.037.07 Fpga#1 (Strictly hex bytes)
+    parameter [15:0]FW_REVISION_VALUE_2  = 16'h0802;    //        8'h0701 . . . Rev 10.037.07 Fpga#1 (Strictly hex bytes)
 	 
 	 
 

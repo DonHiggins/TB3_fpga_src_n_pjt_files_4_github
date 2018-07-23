@@ -1,4 +1,51 @@
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Rev_01.03.08_F2 
+
+05/24/2018 --	Changed signals brought out on test points
+					NET "io_pin_switches[10]" LOC = "E9";	//DIFF_IN_FM_PIN_SW
+					NET "io_pin_switches[11]" LOC = "C10";	//DIFF_OUT_FM_PIN_SW
+					NET "self_test_switches[0]" LOC = "E6";	//DIFF_LOOPBACK_SW
+
+7/16/2018 --  Added back in Test_Apps module which implements 2 "stored_value" 16-bit
+              registers.  We read / write them to test the bus interface between
+				  DSP and Fpga.
+
+7/23/2018 -- Rolling to new Rev (01.03.09_F2)
+             Save Rev_01.03.08_F2  in GitHub
+				  
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Rev_01.03.07_F2 
+
+Summary: FPGA Firmware enforces some "One-Hot" rules to prevent the user from
+               switching together two hot signals:
+
+               ANLG_IN_FM_PIN_SW and ANLG_MUX_ENA are not allowed to 
+					both be on at the same time.
+
+               DIFF_LOOPBACK_SW is not allowed to be on when 
+					either DIFF_IN_FM_PIN_SW or DIFF_OUT_FM_PIN_SW is on.
+
+               Only 1 of the AN_IN_B1 options can be turned on at the same time.
+
+               Only 1 of the ST_DC_V_SW_0,1,2,& 3 is allowed to be on at the same time.
+
+         FPGA Firmware also performs "Break-Before-Make" handling of the above signals,
+               so that in each group of exclusive signals, all signals are turned off
+               for a period of 100 uSec before implementing any requested change.					
+
+09/26/2017 --	No changes yet except version and timestamp
+
+05/18/2018 --	Exploring safe handling of digital switches: one-hot, break-before-make, etc.
+               Verified 1-Hot and Break-Before-Make performance for analog_in_b1_switches[3:0]
+					
+05/21/2018 --	Created a new 1-Hot / Break-Before-Make for Analog_Mux_Enable and Anlg_In_Pin_Switch
+					This keeps us from having the Analog Mux driving the analog inputs at the same
+					time as we have hot signals on the analog In I/O pins.
+
+05/25/2018 --	Created a new 1-Hot / Break-Before-Make so that Differential In and Out Pin Switches
+               are turned off, whenever the Differential In/Out Loopback switch is turned on.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Rev_01.03.06_F2 
 
 07/21/2017 --	Exploring irregularity with LED handling.

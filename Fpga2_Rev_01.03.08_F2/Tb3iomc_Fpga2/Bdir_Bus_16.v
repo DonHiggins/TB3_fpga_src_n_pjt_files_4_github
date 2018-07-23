@@ -56,9 +56,9 @@ module BiDir_Bus_16(
 	 input ss_enc_di,
 	 output ss_enc_do,
 	 
-	 output io_interrupt_2
+	 output io_interrupt_2,
 	 
-//	 output [3:0] testpoint // optional outputs for debug to testpoints
+	 output [3:0] testpoint // optional outputs for debug to testpoints
                            //   consult higher-level module to see if connections are instantiated
 									
     );
@@ -78,6 +78,11 @@ module BiDir_Bus_16(
 //assign testpoint[2] = testpt_DIM[2];
 //assign testpoint[3] = testpt_DIM[3];
 
+	assign testpoint[0] = self_test_switches[0];
+	assign testpoint[1] = io_pin_switches[10];
+	assign testpoint[2] = io_pin_switches[11];
+	assign testpoint[3] = 1'b0;
+
 //	 wire [3:0] testpt_TA; // receive testpoint signals passed up from lower level modules
 //	 wire [3:0] testpt_MT; // receive testpoint signals passed up from lower level modules
 //	 wire [3:0] testpt_A3; // receive testpoint  signals passed up from lower level modules
@@ -86,17 +91,21 @@ module BiDir_Bus_16(
 //	 wire [3:0] testpt_DIFI; // receive testpoint signals passed up from lower level modules
 //	 wire [3:0] testpt_DIGI; // receive testpoint signals passed up from lower level modules
 //	 wire [3:0] testpt_SSE; // receive testpoint signals passed up from lower level modules
-//    wire [3:0] testpt_DIM; // receive testpoint signals passed up from lower level modules
+//  wire [3:0] testpt_DIM; // receive testpoint signals passed up from lower level modules
  
-	// Alternate testpoint assignment, square wave to tpo1[0], app 140khz
-	 //assign tp01[0] = count_clk[7]; // external clock / 256
-	 //reg [7:0] count_clk;
-    //always @(posedge xclk or negedge reset)
-    //  if (!reset) begin
-	 //		count_clk <= 8'h00;
-	 //	end else begin
-	 //	   count_clk <= count_clk + 1;
-	 //	end
+// Alternate testpoint assignment, square wave to testpoint[0], app 140khz
+// faster square waves to testpoint[0] - [3]
+//	assign testpoint[0] = count_clk[7]; // external clock / 256
+//	assign testpoint[1] = count_clk[6]; // external clock / 256
+//	assign testpoint[2] = count_clk[5]; // external clock / 256
+//	assign testpoint[3] = count_clk[4]; // external clock / 256
+//	reg [7:0] count_clk;
+//	always @(posedge xclk or negedge reset)
+//	if (!reset) begin
+//			count_clk <= 8'h00;
+//		end else begin
+//			count_clk <= count_clk + 1;
+//		end
 	 
 	 // Enables output onto the bidirectional data bus
 	 reg output_enable_reg;
@@ -161,8 +170,9 @@ parameter bus_id = 0; // 0 is default value
 	               (data_from_DIGI_avail ? db_out_DIGI : 
 	               (data_from_DIM_avail ? db_out_DIM : 
 	               (data_from_SSE_avail ? db_out_SSE : 
+	               (data_from_TA_avail ? db_out_TA : 
 	               (data_from_A3_avail ? db_out_A3 : 
-						(data_from_MT_avail ? db_out_MT :16'h3333))))))))
+						(data_from_MT_avail ? db_out_MT :16'h3333)))))))))
 					: 16'hzzzz;
 
    always @(posedge xclk or negedge reset)
@@ -179,21 +189,20 @@ parameter bus_id = 0; // 0 is default value
 	// ----- Instantiate the Test_Apps sub module (TA) ----------
 	
    // every sub module gets its own data bus output register
-//	wire [0:15] db_out_TA;    // output data from "Test_Apps" module
-//	wire data_from_TA_avail;  // this tells top level when sub module has placed data in db_out_XX
+	wire [0:15] db_out_TA;    // output data from "Test_Apps" module
+	wire data_from_TA_avail;  // this tells top level when sub module has placed data in db_out_XX
 
-//	Test_Apps TA (
-//		.reset(reset), 
-//		.xclk(xclk), 
-//		.write_qualified(write_qualified), 
-//		.read_qualified(read_qualified), 
-//		.ab(ab),
-//		.db_in(db_in),
-//		.db_out_TA(db_out_TA),
-//		.data_from_TA_avail(data_from_TA_avail)
-//    .testpoint(testpt_TA)     // 4 test points 
-//		
-//	);
+	Test_Apps TA (
+		.reset(reset), 
+		.xclk(xclk), 
+		.write_qualified(write_qualified), 
+		.read_qualified(read_qualified), 
+		.ab(ab),
+		.db_in(db_in),
+		.db_out_TA(db_out_TA),
+		.data_from_TA_avail(data_from_TA_avail)
+
+	);
 
 	// ----- Instantiate the More_Test sub module (MT) ----------
 	

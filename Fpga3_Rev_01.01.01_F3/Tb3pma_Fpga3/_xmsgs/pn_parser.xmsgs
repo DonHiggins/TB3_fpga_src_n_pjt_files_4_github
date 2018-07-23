@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated   -->
+<!--     by the Xilinx ISE software.  Any direct editing or        -->
+<!--     changes made to this file may result in unpredictable     -->
+<!--     behavior or data corruption.  It is strongly advised that -->
+<!--     users do not edit the contents of this file.              -->
+<!--                                                               -->
+<!-- Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.    -->
+
+<messages>
+<msg type="info" file="ProjectMgmt" num="1693" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.02_F3/Tb3pma_Fpga3/Apps_3.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.02_F3/Tb3pma_Fpga3/Apps_3.v</arg>&quot; Line <arg fmt="%d" index="2">81</arg>. <arg fmt="%s" index="3">Include file found: &apos;S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.01_F3/Tb3pma_Fpga3/Address_Bus_Defs.v&apos; in file &quot;S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.02_F3/Tb3pma_Fpga3/Apps_3.v&quot; line 81
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1693" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.02_F3/Tb3pma_Fpga3/Bdir_Bus_16.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1693" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.02_F3/Tb3pma_Fpga3/More_Test.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.02_F3/Tb3pma_Fpga3/More_Test.v</arg>&quot; Line <arg fmt="%d" index="2">137</arg>. <arg fmt="%s" index="3">Include file found: &apos;S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.01_F3/Tb3pma_Fpga3/Address_Bus_Defs.v&apos; in file &quot;S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.02_F3/Tb3pma_Fpga3/More_Test.v&quot; line 137
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1693" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.02_F3/Tb3pma_Fpga3/Tb3pmA_Fpga3_Top.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1693" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.02_F3/Tb3pma_Fpga3/Test_Apps.v\&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.02_F3/Tb3pma_Fpga3/Test_Apps.v</arg>&quot; Line <arg fmt="%d" index="2">52</arg>. <arg fmt="%s" index="3">Include file found: &apos;S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.01_F3/Tb3pma_Fpga3/Address_Bus_Defs.v&apos; in file &quot;S:/Xilinx_Prj_Tb3pma_Fpga3/Rev_01.01.02_F3/Tb3pma_Fpga3/Test_Apps.v&quot; line 52
+</arg>
+</msg>
+
+</messages>
+
