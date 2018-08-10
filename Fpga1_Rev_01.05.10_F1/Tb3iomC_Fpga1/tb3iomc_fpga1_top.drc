@@ -1,0 +1,8 @@
+Release 13.1 Drc O.40d (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+Wed May 24 16:24:05 2017
+
+drc -z Tb3iomC_Fpga1_Top.ncd Tb3iomC_Fpga1_Top.pcf
+
+DRC detected 0 errors and 0 warnings.

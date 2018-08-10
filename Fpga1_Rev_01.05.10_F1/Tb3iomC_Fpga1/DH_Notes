@@ -8,7 +8,10 @@ Rev_01.05.10_F1
 					Switching over to new module Func_Sel_AMux_Diff.
 					I already implemented a similar fix in Func_Sel_AMux_SE for single ended outputs
 					and it worked well.
-					And this mod works well with the differential inputs.
+					And this mod works well with the differential inputs
+
+07/25/2017 --  Rolled Rev_01.05.10_F1 to store Rev_01.05.12_F1.
+               I'm skipping over Rev_01.05.11_F1 which appears to be corrupted.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Rev_01.05.09_F1

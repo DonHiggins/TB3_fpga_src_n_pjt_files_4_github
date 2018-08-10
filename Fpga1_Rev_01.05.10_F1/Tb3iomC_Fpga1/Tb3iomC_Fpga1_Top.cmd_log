@@ -1,0 +1,7 @@
+xst -intstyle ise -ifn "S:/Xilinx_Prj_Tb3iomc_Fpga1/Rev_01.05.10_F1/Tb3iomC_Fpga1/Tb3iomC_Fpga1_Top.xst" -ofn "S:/Xilinx_Prj_Tb3iomc_Fpga1/Rev_01.05.10_F1/Tb3iomC_Fpga1/Tb3iomC_Fpga1_Top.syr" 
+xst -intstyle ise -ifn "S:/Xilinx_Prj_Tb3iomc_Fpga1/Rev_01.05.10_F1/Tb3iomC_Fpga1/Tb3iomC_Fpga1_Top.xst" -ofn "S:/Xilinx_Prj_Tb3iomc_Fpga1/Rev_01.05.10_F1/Tb3iomC_Fpga1/Tb3iomC_Fpga1_Top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Tb3iomC_Fpga1_Constraints.ucf -p xc6slx9-csg225-2 Tb3iomC_Fpga1_Top.ngc Tb3iomC_Fpga1_Top.ngd  
+map -intstyle ise -p xc6slx9-csg225-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Tb3iomC_Fpga1_Top_map.ncd Tb3iomC_Fpga1_Top.ngd Tb3iomC_Fpga1_Top.pcf 
+par -w -intstyle ise -ol high -mt off Tb3iomC_Fpga1_Top_map.ncd Tb3iomC_Fpga1_Top.ncd Tb3iomC_Fpga1_Top.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Tb3iomC_Fpga1_Top.twx Tb3iomC_Fpga1_Top.ncd -o Tb3iomC_Fpga1_Top.twr Tb3iomC_Fpga1_Top.pcf -ucf Tb3iomC_Fpga1_Constraints.ucf 
+bitgen -intstyle ise -f Tb3iomC_Fpga1_Top.ut Tb3iomC_Fpga1_Top.ncd 

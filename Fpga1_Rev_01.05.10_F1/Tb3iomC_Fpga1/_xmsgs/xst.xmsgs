@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"\\boa\dhiggins$\new_test_board\firmware\dsp\main_processor\documentation\engineering\digital_test_station_tb3\fpga_program\Xilinx_Prj_Tb3iomc_Fpga1\Rev_01.05.10_F1\Tb3iomC_Fpga1\DO_Hall.v" Line 41: Assignment to <arg fmt="%s" index="1">reset_combo</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">reset_helper1</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">Tb3iomC_Fpga1_Top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">reset_helper2</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">Tb3iomC_Fpga1_Top</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">db_out_A3_reg_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">Apps_3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;db_out_A3_reg_6&gt; &lt;db_out_A3_reg_14&gt; &lt;db_out_A3_reg_15&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">db_out_A3_reg_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">Apps_3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;db_out_A3_reg_4&gt; &lt;db_out_A3_reg_13&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">db_out_A3_reg_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">Apps_3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;db_out_A3_reg_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dac_index_mask_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DAC_Apps</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;data_format_option_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dac_index_mask_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DAC_Apps</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;data_format_option_0&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">resetCounter_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">Tb3iomC_Fpga1_Top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">BDB/DAC/Dac_Serial/serial_clk_reg</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">Tb3iomC_Fpga1_Top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;BDB/DAC/Dac_Serial/clk_counter_0&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="2957" delta="new" >There are clock and non-clock loads on clock signal <arg fmt="%s" index="1">xclk_BUFG</arg>. This is not a recommended design practice, that may cause excessive delay, skew or unroutable situations.
+</msg>
+
+</messages>
+
